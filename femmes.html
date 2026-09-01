@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Femme | Catalogue | Maison Traoré Fashion</title>
+    <meta
+        name="description"
+        content="Découvrez la collection Femme de Maison Traoré Fashion. Robes, ensembles et créations couture sur mesure."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="header">
+    <a href="index.html" class="logo">
+        <span>MAISON</span>
+        <strong>TRAORÉ</strong>
+        <span>FASHION</span>
+    </a>
+    <nav class="navigation">
+        <a href="index.html">
+            Accueil
+        </a>
+        <a href="about.html">
+            La Maison
+        </a>
+        <a href="collections.html">
+            Catalogue
+        </a>
+        <a href="index.html#atelier">
+            L'Atelier
+        </a>
+        <a href="rendez-vous.html">
+            Rendez-vous
+        </a>
+        <a href="contact.html">
+            Contact
+        </a>
+    </nav>
+    <a
+        href="rendez-vous.html"
+        class="header-button"
+    >
+        Rendez-vous
+    </a>
+    <button
+        class="menu-button"
+        type="button"
+        aria-label="Menu"
+        onclick="
+            document.querySelector('.navigation').classList.toggle('menu-open');
+            this.classList.toggle('active');
+            document.body.classList.toggle('menu-is-open');
+        "
+    >
+        <span></span>
+        <span></span>
+    </button>
+</header>
+<!-- =====================================================
+     HERO
+===================================================== -->
+<main>
+<section class="page-hero">
+    <div
+        class="page-hero-image"
+        style="
+            background-image:
+            url('images/IMG_8100.jpeg');
+            background-position:center;
+        "
+    ></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <p class="eyebrow">
+            CATALOGUE — 02
+        </p>
+        <h1>
+            Femme<br>
+            <em>Collection.</em>
+        </h1>
+        <p class="hero-description">
+            Une expression de la féminité
+            à travers des créations élégantes,
+            contemporaines et entièrement
+            réalisées sur mesure.
+        </p>
+    </div>
+</section>
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+<section class="catalog">
+    <div class="menu-breadcrumb">
+        <a href="collections.html">
+            Catalogue
+        </a>
+        <span> / </span>
+        <strong>
+            Femme
+        </strong>
+    </div>
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+    <div class="catalog-header">
+        <p class="eyebrow">
+            MAISON TRAORÉ FASHION
+        </p>
+        <h2>
+            La grâce<br>
+            <em>sur mesure.</em>
+        </h2>
+        <p class="heading-description">
+            Découvrez notre univers féminin :
+            robes, ensembles et créations
+            pensées pour révéler
+            votre personnalité.
+        </p>
+    </div>
+<!-- =====================================================
+     CATÉGORIES FEMME
+===================================================== -->
+    <div class="catalog-grid">
+        <!-- ROBES -->
+        <a
+            href="#robes"
+            class="catalog-card reveal"
+        >
+            <div
+                class="catalog-card-image"
+                style="
+                    background-image:
+                    url('images/IMG_8100.jpeg');
+                "
+            ></div>
+            <div class="catalog-card-content">
+                <span>
+                    FEMME — 01
+                </span>
+                <h3>
+                    Robes
+                </h3>
+                <p>
+                    Des silhouettes
+                    élégantes et
+                    intemporelles.
+                </p>
+            </div>
+        </a>
+        <!-- ENSEMBLES -->
+        <a
+            href="#ensembles-femme"
+            class="catalog-card reveal"
+        >
+            <div
+                class="catalog-card-image"
+                style="
+                    background-image:
+                    url('images/99AD9EBD-0A34-4624-85A9-D68AB02D4FBE.png');
+                "
+            ></div>
+            <div class="catalog-card-content">
+                <span>
+                    FEMME — 02
+                </span>
+                <h3>
+                    Ensembles
+                </h3>
+                <p>
+                    Modernité,
+                    élégance et
+                    caractère.
+                </p>
+            </div>
+        </a>
+        <!-- CÉRÉMONIE -->
+        <a
+            href="#ceremonie"
+            class="catalog-card reveal"
+        >
+            <div
+                class="catalog-card-image"
+                style="
+                    background-image:
+                    url('images/50AC4CE8-A4C4-4047-A809-DE33E8C63F4F.png');
+                "
+            ></div>
+            <div class="catalog-card-content">
+                <span>
+                    FEMME — 03
+                </span>
+                <h3>
+                    Cérémonie
+                </h3>
+                <p>
+                    Des créations
+                    pensées pour
+                    les grands moments.
+                </p>
+            </div>
+        </a>
+        <!-- SUR MESURE -->
+        <a
+            href="rendez-vous.html"
+            class="catalog-card reveal"
+        >
+            <div
+                class="catalog-card-image"
+                style="
+                    background-image:
+                    url('images/249003CA-83B0-4725-B707-2E407D2BC0AA.png');
+                "
+            ></div>
+            <div class="catalog-card-content">
+                <span>
+                    FEMME — 04
+                </span>
+                <h3>
+                    Sur mesure
+                </h3>
+                <p>
+                    Une création
+                    imaginée spécialement
+                    pour vous.
+                </p>
+            </div>
+        </a>
+    </div>
+</section>
+<!-- =====================================================
+     ROBES
+===================================================== -->
+<section
+    id="robes"
+    class="light-section page-section"
+>
+    <p class="eyebrow dark">
+        FEMME — ROBES
+    </p>
+    <h2>
+        Robes<br>
+        <em>d'exception.</em>
+    </h2>
+    <p>
+        Des coupes féminines,
+        des matières soigneusement
+        sélectionnées et des finitions
+        réalisées avec précision.
+    </p>
+    <div class="model-card">
+        <div
+            class="model-card-image"
+            style="
+                background-image:
+                url('images/IMG_8100.jpeg');
+            "
+        ></div>
+        <div class="model-card-content">
+            <span>
+                MODÈLE — 001
+            </span>
+            <h3>
+                Élégance
+            </h3>
+            <p>
+                Une silhouette raffinée
+                créée sur mesure.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     ENSEMBLES FEMME
+===================================================== -->
+<section
+    id="ensembles-femme"
+    class="dark-section page-section"
+>
+    <p class="eyebrow">
+        FEMME — ENSEMBLES
+    </p>
+    <h2>
+        Ensembles<br>
+        <em>Maison.</em>
+    </h2>
+    <p>
+        Des silhouettes contemporaines
+        qui associent structure,
+        confort et élégance.
+    </p>
+    <div class="model-card">
+        <div
+            class="model-card-image"
+            style="
+                background-image:
+                url('images/99AD9EBD-0A34-4624-85A9-D68AB02D4FBE.png');
+            "
+        ></div>
+        <div class="model-card-content">
+            <span>
+                MODÈLE — 002
+            </span>
+            <h3>
+                Signature
+            </h3>
+            <p>
+                Une création féminine
+                pensée pour une allure
+                distinctive.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     CÉRÉMONIE
+===================================================== -->
+<section
+    id="ceremonie"
+    class="light-section page-section"
+>
+    <p class="eyebrow dark">
+        FEMME — CÉRÉMONIE
+    </p>
+    <h2>
+        Les grands<br>
+        <em>moments.</em>
+    </h2>
+    <p>
+        Mariage, cérémonie ou événement
+        particulier : une création pensée
+        spécialement pour votre occasion.
+    </p>
+    <div class="model-card">
+        <div
+            class="model-card-image"
+            style="
+                background-image:
+                url('images/50AC4CE8-A4C4-4047-A809-DE33E8C63F4F.png');
+            "
+        ></div>
+        <div class="model-card-content">
+            <span>
+                MODÈLE — 003
+            </span>
+            <h3>
+                Cérémonie
+            </h3>
+            <p>
+                Une pièce d'exception
+                pour une occasion unique.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     RENDEZ-VOUS
+===================================================== -->
+<section class="appointment">
+    <div class="appointment-inner">
+        <p class="eyebrow">
+            CRÉATION SUR MESURE
+        </p>
+        <h2>
+            Votre<br>
+            <em>signature.</em>
+        </h2>
+        <p>
+            Une idée, une inspiration
+            ou une envie particulière ?
+            Parlons de votre prochaine création.
+        </p>
+        <a
+            href="rendez-vous.html"
+            class="button button-gold"
+        >
+            Prendre rendez-vous
+        </a>
+    </div>
+</section>
+</main>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="footer">
+    <div class="footer-logo">
+        MAISON TRAORÉ FASHION
+    </div>
+    <div class="footer-social">
+        <a
+            href="https://www.instagram.com/maison_traore/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Instagram
+        </a>
+        <a
+            href="https://www.tiktok.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            TikTok
+        </a>
+    </div>
+    <p>
+        © 2026 Maison Traoré Fashion.
+        Tous droits réservés.
+    </p>
+</footer>
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+<a
+    href="https://wa.me/22890509669"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contacter Maison Traoré Fashion sur WhatsApp"
+>
+    WA
+</a>
+<script src="js/js/script.js"></script>
+</body>
+</html>
