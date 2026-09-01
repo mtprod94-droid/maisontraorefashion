@@ -6,16 +6,17 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-    <meta
-        name="description"
-        content="Découvrez les collections Maison Traoré Fashion : Hommes, Femmes, Enfants et Événements."
-    >
-    <meta name="theme-color" content="#090909">
     <title>
         Collections | Maison Traoré Fashion
     </title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta
+        name="description"
+        content="Découvrez les collections Homme, Femme, Enfant et Événements de Maison Traoré Fashion."
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -25,7 +26,6 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet"
     >
-    <!-- CSS -->
     <link
         rel="stylesheet"
         href="css/style.css"
@@ -34,39 +34,17 @@
 <body>
 <!-- =====================================================
      HEADER
-===================================================== -->
-<header class="site-header">
+     ===================================================== -->
+<header class="header">
     <a
         href="index.html"
-        class="brand"
-        aria-label="Maison Traoré Fashion — Accueil"
+        class="logo"
     >
-        <span class="brand-small">
-            MAISON
-        </span>
-        <span class="brand-name">
-            TRAORÉ
-        </span>
-        <span class="brand-small">
-            FASHION
-        </span>
+        <span>MAISON</span>
+        <strong>TRAORÉ</strong>
+        <span>FASHION</span>
     </a>
-    <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="main-navigation"
-    >
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <nav
-        id="main-navigation"
-        class="main-navigation"
-        aria-label="Navigation principale"
-    >
+    <nav class="navigation">
         <a href="index.html">
             Accueil
         </a>
@@ -86,188 +64,223 @@
             Contact
         </a>
     </nav>
+    <a
+        href="rendez-vous.html"
+        class="header-button"
+    >
+        Rendez-vous
+    </a>
+    <button
+        class="menu-button"
+        type="button"
+        aria-label="Menu"
+    >
+        <span></span>
+        <span></span>
+    </button>
 </header>
 <!-- =====================================================
-     HERO
-===================================================== -->
+     MAIN
+     ===================================================== -->
 <main>
-    <section class="page-hero">
-        <div class="page-hero-background"></div>
+    <!-- =================================================
+         HERO
+         ================================================= -->
+    <section class="page-hero collection-page-hero">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
             <p class="eyebrow">
                 MAISON TRAORÉ FASHION
             </p>
             <h1>
-                Les
+                Nos
+                <br>
                 <em>Collections.</em>
             </h1>
-            <p class="hero-description">
-                Découvrez notre univers de création
-                à travers quatre catégories pensées
-                pour chaque silhouette et chaque occasion.
-            </p>
         </div>
     </section>
-<!-- =====================================================
-     CATALOGUE
-===================================================== -->
-    <section class="catalog">
-        <div class="catalog-header">
-            <div class="section-label">
-                COLLECTIONS
+    <!-- =================================================
+         INTRODUCTION
+         ================================================= -->
+    <section class="collection-intro">
+        <p class="eyebrow dark">
+            L'UNIVERS MAISON TRAORÉ
+        </p>
+        <h2>
+            Des silhouettes
+            <br>
+            <em>qui racontent.</em>
+        </h2>
+        <p>
+            Chaque création Maison Traoré Fashion
+            est pensée autour d'une identité,
+            d'une matière et d'une vision.
+            <br><br>
+            Découvrez nos univers et laissez-vous
+            guider vers la collection qui vous
+            correspond.
+        </p>
+    </section>
+    <!-- =================================================
+         COLLECTIONS
+         ================================================= -->
+    <section class="collection-list">
+        <!-- =============================================
+             HOMMES
+             ============================================= -->
+        <a
+            href="hommes.html"
+            class="collection-feature reveal"
+        >
+            <div
+                class="collection-feature-image homme"
+                role="img"
+                aria-label="Collection Homme Maison Traoré Fashion"
+            ></div>
+            <div class="collection-feature-info">
+                <span>
+                    01 — HOMMES
+                </span>
+                <h2>
+                    Élégance
+                    <br>
+                    <em>au masculin.</em>
+                </h2>
+                <p>
+                    Coupes précises,
+                    matières nobles et caractère.
+                </p>
+                <span class="collection-link">
+                    Découvrir la collection
+                    <strong>→</strong>
+                </span>
             </div>
-            <h2>
-                Choisissez
-                <em>votre univers.</em>
-            </h2>
-        </div>
-        <div class="catalog-grid">
-            <!-- HOMMES -->
-            <a
-                href="hommes.html"
-                class="catalog-card"
-            >
-                <div
-                    class="catalog-card-image catalog-men"
-                ></div>
-                <div class="catalog-card-content">
-                    <span>
-                        01 — COLLECTION
-                    </span>
-                    <h3>
-                        Hommes
-                    </h3>
-                    <p>
-                        Costumes, ensembles,
-                        pièces sur mesure et
-                        créations de caractère.
-                    </p>
-                </div>
-            </a>
-            <!-- FEMMES -->
-            <a
-                href="femmes.html"
-                class="catalog-card"
-            >
-                <div
-                    class="catalog-card-image catalog-women"
-                ></div>
-                <div class="catalog-card-content">
-                    <span>
-                        02 — COLLECTION
-                    </span>
-                    <h3>
-                        Femmes
-                    </h3>
-                    <p>
-                        Silhouettes élégantes,
-                        créations couture et
-                        pièces uniques.
-                    </p>
-                </div>
-            </a>
-            <!-- ENFANTS -->
-            <a
-                href="enfants.html"
-                class="catalog-card"
-            >
-                <div
-                    class="catalog-card-image catalog-children"
-                ></div>
-                <div class="catalog-card-content">
-                    <span>
-                        03 — COLLECTION
-                    </span>
-                    <h3>
-                        Enfants
-                    </h3>
-                    <p>
-                        Des créations raffinées
-                        adaptées aux plus jeunes.
-                    </p>
-                </div>
-            </a>
-            <!-- ÉVÉNEMENTS -->
-            <a
-                href="evenements.html"
-                class="catalog-card"
-            >
-                <div
-                    class="catalog-card-image catalog-events"
-                ></div>
-                <div class="catalog-card-content">
-                    <span>
-                        04 — COLLECTION
-                    </span>
-                    <h3>
-                        Événements
-                    </h3>
-                    <p>
-                        Mariages, cérémonies,
-                        soirées et grandes occasions.
-                    </p>
-                </div>
-            </a>
-        </div>
+        </a>
+        <!-- =============================================
+             FEMMES
+             ============================================= -->
+        <a
+            href="femmes.html"
+            class="collection-feature reveal"
+        >
+            <div
+                class="collection-feature-image femme"
+                role="img"
+                aria-label="Collection Femme Maison Traoré Fashion"
+            ></div>
+            <div class="collection-feature-info">
+                <span>
+                    02 — FEMMES
+                </span>
+                <h2>
+                    Grâce
+                    <br>
+                    <em>et distinction.</em>
+                </h2>
+                <p>
+                    Des créations pensées
+                    pour révéler la personnalité.
+                </p>
+                <span class="collection-link">
+                    Découvrir la collection
+                    <strong>→</strong>
+                </span>
+            </div>
+        </a>
+        <!-- =============================================
+             ENFANTS
+             ============================================= -->
+        <a
+            href="enfants.html"
+            class="collection-feature reveal"
+        >
+            <div
+                class="collection-feature-image enfant"
+                role="img"
+                aria-label="Collection Enfant Maison Traoré Fashion"
+            ></div>
+            <div class="collection-feature-info">
+                <span>
+                    03 — ENFANTS
+                </span>
+                <h2>
+                    L'élégance
+                    <br>
+                    <em>dès le départ.</em>
+                </h2>
+                <p>
+                    Des silhouettes élégantes
+                    pensées pour les plus jeunes.
+                </p>
+                <span class="collection-link">
+                    Découvrir la collection
+                    <strong>→</strong>
+                </span>
+            </div>
+        </a>
+        <!-- =============================================
+             ÉVÉNEMENTS
+             ============================================= -->
+        <a
+            href="evenements.html"
+            class="collection-feature reveal"
+        >
+            <div
+                class="collection-feature-image ceremony"
+                role="img"
+                aria-label="Collection Événements Maison Traoré Fashion"
+            ></div>
+            <div class="collection-feature-info">
+                <span>
+                    04 — ÉVÉNEMENTS
+                </span>
+                <h2>
+                    Pour les
+                    <br>
+                    <em>grands moments.</em>
+                </h2>
+                <p>
+                    Des créations conçues
+                    pour les occasions exceptionnelles.
+                </p>
+                <span class="collection-link">
+                    Découvrir la collection
+                    <strong>→</strong>
+                </span>
+            </div>
+        </a>
     </section>
-<!-- =====================================================
-     APPOINTMENT
-===================================================== -->
-    <section class="appointment">
-        <div class="appointment-content">
-            <p class="eyebrow">
-                CRÉATION SUR MESURE
-            </p>
-            <h2>
-                Une pièce
-                <em>unique.</em>
-            </h2>
-            <p>
-                Vous avez une idée précise ou
-                souhaitez créer une pièce entièrement
-                personnalisée ?
-            </p>
-            <a
-                href="rendez-vous.html"
-                class="primary-button"
-            >
-                Prendre rendez-vous
-            </a>
-        </div>
+    <!-- =================================================
+         CRÉATION PRIVÉE
+         ================================================= -->
+    <section class="collection-private reveal">
+        <p class="eyebrow">
+            CRÉATION PRIVÉE
+        </p>
+        <h2>
+            Haute Couture
+            <br>
+            <em>Sur Mesure.</em>
+        </h2>
+        <p>
+            Une création entièrement personnalisée,
+            réalisée selon vos mesures,
+            votre personnalité et vos exigences.
+        </p>
+        <a
+            href="rendez-vous.html"
+            class="button button-gold"
+        >
+            Demander une création
+        </a>
     </section>
 </main>
 <!-- =====================================================
      FOOTER
-===================================================== -->
-<footer class="site-footer">
-    <div class="footer-brand">
-        <span>
-            MAISON
-        </span>
-        <strong>
-            TRAORÉ
-        </strong>
-        <span>
-            FASHION
-        </span>
-    </div>
-    <div class="footer-links">
-        <a href="index.html">
-            Accueil
-        </a>
-        <a href="about.html">
-            La Maison
-        </a>
-        <a href="collections.html">
-            Collections
-        </a>
-        <a href="rendez-vous.html">
-            Rendez-vous
-        </a>
-        <a href="contact.html">
-            Contact
-        </a>
+     ===================================================== -->
+<footer class="footer">
+    <div class="footer-logo">
+        MAISON TRAORÉ FASHION
     </div>
     <div class="footer-social">
         <a
@@ -278,33 +291,36 @@
             Instagram
         </a>
         <a
-            href="https://www.tiktok.com/"
+            href="https://www.tiktok.com/@togo.boy228"
             target="_blank"
             rel="noopener noreferrer"
         >
             TikTok
         </a>
     </div>
-    <p class="copyright">
+    <p>
         © 2026 Maison Traoré Fashion.
         Tous droits réservés.
     </p>
+    <a href="mentions-legales.html">
+        Mentions légales
+    </a>
 </footer>
 <!-- =====================================================
      WHATSAPP
-===================================================== -->
+     ===================================================== -->
 <a
     href="https://wa.me/22890509669"
-    class="whatsapp-button"
+    class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contacter Maison Traoré Fashion sur WhatsApp"
 >
-    <span>
-        WhatsApp
-    </span>
+    WA
 </a>
-<!-- JAVASCRIPT -->
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 <script src="js/script.js"></script>
 </body>
 </html>
