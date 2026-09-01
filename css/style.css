@@ -923,3 +923,244 @@ em {
 /* =========================================================
    END — MOBILE FIRST
    ========================================================= */
+
+/* =========================================================
+   MULTI-LEVEL MOBILE NAVIGATION
+   ========================================================= */
+.nav-submenu-wrapper {
+    position: relative;
+    width: 100%;
+}
+/* =========================================================
+   COLLECTIONS BUTTON
+   ========================================================= */
+.nav-submenu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 65px;
+    padding: 0;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: left;
+    border-bottom: 1px solid var(--border-dark);
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        padding-left 0.5s var(--ease);
+}
+.nav-submenu-trigger:hover {
+    padding-left: 8px;
+    color: var(--gold-light);
+}
+/* =========================================================
+   ARROW
+   ========================================================= */
+.submenu-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition:
+        transform 0.5s var(--ease);
+}
+.nav-submenu-wrapper.submenu-active
+.submenu-arrow {
+    transform: rotate(180deg);
+}
+/* =========================================================
+   SUBMENU PANEL
+   ========================================================= */
+.nav-submenu {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    padding: 0 0 30px;
+    background: rgba(9,9,9,0.99);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition:
+        opacity 0.45s ease,
+        transform 0.6s var(--ease),
+        visibility 0.45s ease;
+}
+.nav-submenu-wrapper.submenu-active
+.nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+/* =========================================================
+   SUBMENU HEADER
+   ========================================================= */
+.nav-submenu-header {
+    min-height: 65px;
+    border-bottom: 1px solid var(--border-dark);
+}
+.nav-submenu-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 65px;
+    padding: 0;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        padding-left 0.5s var(--ease);
+}
+.nav-submenu-back:hover {
+    padding-left: 8px;
+    color: var(--gold-light);
+}
+.nav-submenu-back span:first-child {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 1.2rem;
+}
+/* =========================================================
+   MAIN CATALOGUE LINK
+   ========================================================= */
+.nav-submenu-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 0 4px;
+    border-bottom: 1px solid var(--border-dark);
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition:
+        padding-left 0.5s var(--ease),
+        color 0.3s ease;
+}
+.nav-submenu-main:hover {
+    padding-left: 10px;
+    color: var(--white);
+}
+/* =========================================================
+   CATEGORY LINKS
+   ========================================================= */
+.nav-submenu-link {
+    display: grid;
+    grid-template-columns: 42px 1fr 30px;
+    align-items: center;
+    gap: 8px;
+    min-height: 72px;
+    padding: 0 4px;
+    border-bottom: 1px solid var(--border-dark);
+    transition:
+        padding-left 0.5s var(--ease),
+        background 0.4s ease;
+}
+.nav-submenu-link:hover {
+    padding-left: 12px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(184,154,90,0.08),
+            transparent
+        );
+}
+/* =========================================================
+   NUMBER
+   ========================================================= */
+.submenu-number {
+    color: var(--gold-dark);
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+}
+/* =========================================================
+   TITLE
+   ========================================================= */
+.submenu-title {
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+.nav-submenu-link:hover
+.submenu-title {
+    color: var(--gold-light);
+}
+/* =========================================================
+   SMALL ARROW
+   ========================================================= */
+.submenu-arrow-small {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    transition:
+        transform 0.5s var(--ease);
+}
+.nav-submenu-link:hover
+.submenu-arrow-small {
+    transform: translate(3px, -3px);
+}
+/* =========================================================
+   MENU OPEN ANIMATION
+   ========================================================= */
+.main-navigation.open
+.nav-submenu-wrapper:not(.submenu-active) {
+    animation:
+        menu-item-in 0.6s var(--ease) both;
+}
+@keyframes menu-item-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================================================
+   HEADER HIDE ON SCROLL
+   ========================================================= */
+.site-header {
+    transition:
+        transform 0.6s var(--ease),
+        background 0.4s ease;
+}
+.site-header.header-hidden {
+    transform: translateY(-100%);
+}
+/* =========================================================
+   MOBILE SAFETY
+   ========================================================= */
+@media (max-width: 380px) {
+    .main-navigation {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .main-navigation a {
+        font-size: 1.75rem;
+    }
+    .nav-submenu-trigger {
+        font-size: 1.75rem;
+    }
+    .submenu-title {
+        font-size: 1.6rem;
+    }
+}
