@@ -2207,3 +2207,54 @@ em {
         font-size: 0.68rem;
     }
 }
+/* =========================================================
+   ATELIER — LOCATION
+   ========================================================= */
+.atelier-location {
+    margin: 45px 0 38px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.atelier-location > span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--gold-dark);
+    font-family: var(--sans);
+    font-size: 0.48rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+}
+.atelier-location strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #f5f2eb;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+}
+.atelier-location p {
+    margin: 0 0 20px;
+    color: var(--text-muted);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 300;
+}
+.atelier-location .text-link {
+    display: inline-flex;
+}
+/* =========================================================
+   ATELIER MOBILE
+   ========================================================= */
+@media (max-width: 700px) {
+    .atelier-location {
+        margin: 38px 0 32px;
+        padding: 25px 0;
+    }
+    .atelier-location strong {
+        font-size: 1.45rem;
+    }
+    .atelier-location p {
+        font-size: 0.56rem;
+    }
+}
