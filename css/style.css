@@ -1302,3 +1302,146 @@ em {
         font-size: 1.3rem;
     }
 }
+
+/* =========================================================
+   FIX — THIRD LEVEL MENU
+   HOMMES MUST STAY CLOSED
+   ========================================================= */
+.nav-category-wrapper {
+    position: relative;
+    width: 100%;
+}
+/* Hommes button */
+.nav-category-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 61px;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-dark);
+    background: transparent;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        padding-left 0.4s ease;
+}
+.nav-category-trigger:hover {
+    color: var(--gold-light);
+}
+/* Arrow */
+.category-arrow {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 1.1rem;
+    transition:
+        transform 0.4s ease;
+}
+/* =========================================================
+   THIRD LEVEL PANEL
+   ========================================================= */
+.nav-category-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: 100%;
+    min-height: 100%;
+    padding: 0 24px 35px;
+    background: #090909;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(30px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s ease,
+        visibility 0.35s ease;
+}
+/* Only open after clicking Hommes */
+.nav-category-wrapper.category-active
+.nav-category-submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+/* Rotate arrow only when active */
+.nav-category-wrapper.category-active
+.category-arrow {
+    transform: rotate(180deg);
+}
+/* =========================================================
+   THIRD LEVEL HEADER
+   ========================================================= */
+.nav-category-header {
+    min-height: 58px;
+    border-bottom: 1px solid var(--border-dark);
+}
+.nav-category-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 58px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+.nav-category-back span:first-child {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 1.2rem;
+}
+/* =========================================================
+   THIRD LEVEL LINKS
+   ========================================================= */
+.nav-category-submenu
+.nav-submenu-link {
+    min-height: 58px;
+    grid-template-columns: 32px 1fr 24px;
+    padding: 0;
+    border-bottom: 1px solid var(--border-dark);
+}
+.nav-category-submenu
+.submenu-title {
+    font-size: 1.25rem;
+}
+/* =========================================================
+   IMPORTANT:
+   COLLECTIONS PANEL MUST NOT OPEN HOMMES AUTOMATICALLY
+   ========================================================= */
+.nav-submenu-wrapper:not(.submenu-active)
+.nav-category-submenu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+@media (max-width: 380px) {
+    .nav-category-submenu {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .nav-category-trigger {
+        min-height: 56px;
+        font-size: 1.3rem;
+    }
+    .nav-category-submenu
+    .submenu-title {
+        font-size: 1.15rem;
+    }
+}
