@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".main-navigation");
     const header =
         document.querySelector(".site-header");
-    /* =====================================================
-       SAFETY CHECK
-       ===================================================== */
     if (!menuButton || !navigation) {
         return;
     }
@@ -45,229 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove("menu-open");
         closeAllSubmenus();
     };
-    const toggleMenu = () => {
-        if (navigation.classList.contains("open")) {
+    menuButton.addEventListener("click", () => {
+        if (
+            navigation.classList.contains("open")
+        ) {
             closeMenu();
         } else {
             openMenu();
         }
-    };
-    menuButton.addEventListener(
-        "click",
-        toggleMenu
-    );
+    });
     /* =====================================================
-       COLLECTIONS — SECOND LEVEL MENU
+       CREATE LINK
        ===================================================== */
-    const collectionsLink =
-        [...navigation.querySelectorAll("a")]
-            .find(
-                (link) =>
-                    link.textContent
-                        .trim()
-                        .toLowerCase() === "collections"
-            );
-    let collectionsWrapper = null;
-    let collectionsSubmenu = null;
-    if (collectionsLink) {
-        /*
-         * Create wrapper
-         */
-        collectionsWrapper =
-            document.createElement("div");
-        collectionsWrapper.className =
-            "nav-submenu-wrapper";
-        /*
-         * Create button
-         */
-        const collectionsButton =
-            document.createElement("button");
-        collectionsButton.type = "button";
-        collectionsButton.className =
-            "nav-submenu-trigger";
-        collectionsButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-        collectionsButton.innerHTML = `
-            <span>Collections</span>
-            <span class="submenu-arrow">›</span>
-        `;
-        /*
-         * Create submenu
-         */
-        collectionsSubmenu =
-            document.createElement("div");
-        collectionsSubmenu.className =
-            "nav-submenu";
-        collectionsSubmenu.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-        /*
-         * Submenu title / back button
-         */
-        const submenuHeader =
-            document.createElement("div");
-        submenuHeader.className =
-            "nav-submenu-header";
-        submenuHeader.innerHTML = `
-            <button
-                type="button"
-                class="nav-submenu-back"
-                aria-label="Retour"
-            >
-                <span>‹</span>
-                <span>Collections</span>
-            </button>
-        `;
-        /*
-         * Catalogue link
-         */
-        const catalogueLink =
-            document.createElement("a");
-        catalogueLink.href =
-            "collections.html";
-        catalogueLink.className =
-            "nav-submenu-link nav-submenu-main";
-        catalogueLink.innerHTML = `
-            <span>
-                Voir le catalogue
-            </span>
-            <span>↗</span>
-        `;
-        /*
-         * Hommes
-         */
-        const hommesLink =
-            createSubmenuLink(
-                "Hommes",
-                "hommes.html",
-                "01"
-            );
-        /*
-         * Femmes
-         */
-        const femmesLink =
-            createSubmenuLink(
-                "Femmes",
-                "femmes.html",
-                "02"
-            );
-        /*
-         * Enfants
-         */
-        const enfantsLink =
-            createSubmenuLink(
-                "Enfants",
-                "enfants.html",
-                "03"
-            );
-        /*
-         * Événements
-         */
-        const evenementsLink =
-            createSubmenuLink(
-                "Événements",
-                "evenements.html",
-                "04"
-            );
-        /*
-         * Assemble submenu
-         */
-        collectionsSubmenu.appendChild(
-            submenuHeader
-        );
-        collectionsSubmenu.appendChild(
-            catalogueLink
-        );
-        collectionsSubmenu.appendChild(
-            hommesLink
-        );
-        collectionsSubmenu.appendChild(
-            femmesLink
-        );
-        collectionsSubmenu.appendChild(
-            enfantsLink
-        );
-        collectionsSubmenu.appendChild(
-            evenementsLink
-        );
-        /*
-         * Replace original Collections link
-         */
-        collectionsLink.replaceWith(
-            collectionsWrapper
-        );
-        collectionsWrapper.appendChild(
-            collectionsButton
-        );
-        collectionsWrapper.appendChild(
-            collectionsSubmenu
-        );
-        /* =================================================
-           OPEN COLLECTIONS SUBMENU
-           ================================================= */
-        collectionsButton.addEventListener(
-            "click",
-            () => {
-                collectionsWrapper.classList.add(
-                    "submenu-active"
-                );
-                collectionsButton.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-                collectionsSubmenu.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-            }
-        );
-        /* =================================================
-           BACK TO MAIN MENU
-           ================================================= */
-        const backButton =
-            submenuHeader.querySelector(
-                ".nav-submenu-back"
-            );
-        backButton.addEventListener(
-            "click",
-            () => {
-                collectionsWrapper.classList.remove(
-                    "submenu-active"
-                );
-                collectionsButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-                collectionsSubmenu.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-            }
-        );
-        /* =================================================
-           CLOSE MENU AFTER CATEGORY SELECTION
-           ================================================= */
-        collectionsSubmenu
-            .querySelectorAll("a")
-            .forEach((link) => {
-                link.addEventListener(
-                    "click",
-                    () => {
-                        closeMenu();
-                    }
-                );
-            });
-    }
-    /* =====================================================
-       CREATE SUBMENU LINK
-       ===================================================== */
-    function createSubmenuLink(
+    function createLink(
         title,
         url,
-        number
+        number = ""
     ) {
         const link =
             document.createElement("a");
@@ -275,9 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
         link.className =
             "nav-submenu-link";
         link.innerHTML = `
-            <span class="submenu-number">
-                ${number}
-            </span>
+            ${
+                number
+                ? `
+                    <span class="submenu-number">
+                        ${number}
+                    </span>
+                  `
+                : ""
+            }
             <span class="submenu-title">
                 ${title}
             </span>
@@ -288,38 +84,409 @@ document.addEventListener("DOMContentLoaded", () => {
         return link;
     }
     /* =====================================================
+       CREATE CATEGORY SUBMENU
+       ===================================================== */
+    function createCategorySubmenu(
+        title,
+        categories
+    ) {
+        const wrapper =
+            document.createElement("div");
+        wrapper.className =
+            "nav-category-wrapper";
+        /* ---------------------------------------------
+           CATEGORY TRIGGER
+        --------------------------------------------- */
+        const trigger =
+            document.createElement("button");
+        trigger.type = "button";
+        trigger.className =
+            "nav-category-trigger";
+        trigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+        trigger.innerHTML = `
+            <span>
+                ${title}
+            </span>
+            <span class="category-arrow">
+                ›
+            </span>
+        `;
+        /* ---------------------------------------------
+           CATEGORY PANEL
+        --------------------------------------------- */
+        const panel =
+            document.createElement("div");
+        panel.className =
+            "nav-category-submenu";
+        panel.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+        /* ---------------------------------------------
+           BACK BUTTON
+        --------------------------------------------- */
+        const header =
+            document.createElement("div");
+        header.className =
+            "nav-category-header";
+        const back =
+            document.createElement("button");
+        back.type = "button";
+        back.className =
+            "nav-category-back";
+        back.innerHTML = `
+            <span>‹</span>
+            <span>
+                ${title}
+            </span>
+        `;
+        header.appendChild(back);
+        panel.appendChild(header);
+        /* ---------------------------------------------
+           CATEGORY LINKS
+        --------------------------------------------- */
+        categories.forEach(
+            (category, index) => {
+                const link =
+                    createLink(
+                        category.title,
+                        category.url,
+                        String(index + 1).padStart(
+                            2,
+                            "0"
+                        )
+                    );
+                panel.appendChild(link);
+            }
+        );
+        /* ---------------------------------------------
+           ASSEMBLE
+        --------------------------------------------- */
+        wrapper.appendChild(trigger);
+        wrapper.appendChild(panel);
+        /* ---------------------------------------------
+           OPEN
+        --------------------------------------------- */
+        trigger.addEventListener(
+            "click",
+            () => {
+                wrapper.classList.add(
+                    "category-active"
+                );
+                trigger.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+                panel.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+            }
+        );
+        /* ---------------------------------------------
+           BACK
+        --------------------------------------------- */
+        back.addEventListener(
+            "click",
+            () => {
+                wrapper.classList.remove(
+                    "category-active"
+                );
+                trigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+                panel.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+            }
+        );
+        /* ---------------------------------------------
+           CLOSE AFTER LINK
+        --------------------------------------------- */
+        panel
+            .querySelectorAll("a")
+            .forEach((link) => {
+                link.addEventListener(
+                    "click",
+                    () => {
+                        closeMenu();
+                    }
+                );
+            });
+        return wrapper;
+    }
+    /* =====================================================
+       COLLECTIONS
+       ===================================================== */
+    const collectionsLink =
+        [...navigation.querySelectorAll("a")]
+            .find(
+                (link) =>
+                    link.textContent
+                        .trim()
+                        .toLowerCase() ===
+                    "collections"
+            );
+    let collectionsWrapper = null;
+    if (collectionsLink) {
+        collectionsWrapper =
+            document.createElement("div");
+        collectionsWrapper.className =
+            "nav-submenu-wrapper";
+        /* ---------------------------------------------
+           COLLECTIONS TRIGGER
+        --------------------------------------------- */
+        const collectionsTrigger =
+            document.createElement("button");
+        collectionsTrigger.type = "button";
+        collectionsTrigger.className =
+            "nav-submenu-trigger";
+        collectionsTrigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+        collectionsTrigger.innerHTML = `
+            <span>
+                Collections
+            </span>
+            <span class="submenu-arrow">
+                ›
+            </span>
+        `;
+        /* ---------------------------------------------
+           COLLECTIONS PANEL
+        --------------------------------------------- */
+        const collectionsPanel =
+            document.createElement("div");
+        collectionsPanel.className =
+            "nav-submenu";
+        collectionsPanel.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+        /* ---------------------------------------------
+           HEADER
+        --------------------------------------------- */
+        const collectionsHeader =
+            document.createElement("div");
+        collectionsHeader.className =
+            "nav-submenu-header";
+        const collectionsBack =
+            document.createElement("button");
+        collectionsBack.type = "button";
+        collectionsBack.className =
+            "nav-submenu-back";
+        collectionsBack.innerHTML = `
+            <span>‹</span>
+            <span>
+                Collections
+            </span>
+        `;
+        collectionsHeader.appendChild(
+            collectionsBack
+        );
+        collectionsPanel.appendChild(
+            collectionsHeader
+        );
+        /* ---------------------------------------------
+           CATALOGUE
+        --------------------------------------------- */
+        const catalogue =
+            createLink(
+                "Voir le catalogue",
+                "collections.html"
+            );
+        catalogue.classList.add(
+            "nav-submenu-main"
+        );
+        collectionsPanel.appendChild(
+            catalogue
+        );
+        /* ---------------------------------------------
+           HOMMES
+        --------------------------------------------- */
+        const hommes =
+            createCategorySubmenu(
+                "Hommes",
+                [
+                    {
+                        title: "Costumes",
+                        url: "hommes.html#costumes"
+                    },
+                    {
+                        title: "Vestes",
+                        url: "hommes.html#vestes"
+                    },
+                    {
+                        title: "Chemises",
+                        url: "hommes.html#chemises"
+                    },
+                    {
+                        title: "Ensembles",
+                        url: "hommes.html#ensembles"
+                    },
+                    {
+                        title: "Cérémonie",
+                        url: "hommes.html#ceremonie"
+                    }
+                ]
+            );
+        collectionsPanel.appendChild(
+            hommes
+        );
+        /* ---------------------------------------------
+           FEMMES
+        --------------------------------------------- */
+        const femmes =
+            createLink(
+                "Femmes",
+                "femmes.html",
+                "02"
+            );
+        collectionsPanel.appendChild(
+            femmes
+        );
+        /* ---------------------------------------------
+           ENFANTS
+        --------------------------------------------- */
+        const enfants =
+            createLink(
+                "Enfants",
+                "enfants.html",
+                "03"
+            );
+        collectionsPanel.appendChild(
+            enfants
+        );
+        /* ---------------------------------------------
+           ÉVÉNEMENTS
+        --------------------------------------------- */
+        const evenements =
+            createLink(
+                "Événements",
+                "evenements.html",
+                "04"
+            );
+        collectionsPanel.appendChild(
+            evenements
+        );
+        /* ---------------------------------------------
+           ASSEMBLE COLLECTIONS
+        --------------------------------------------- */
+        collectionsWrapper.appendChild(
+            collectionsTrigger
+        );
+        collectionsWrapper.appendChild(
+            collectionsPanel
+        );
+        collectionsLink.replaceWith(
+            collectionsWrapper
+        );
+        /* ---------------------------------------------
+           OPEN COLLECTIONS
+        --------------------------------------------- */
+        collectionsTrigger.addEventListener(
+            "click",
+            () => {
+                collectionsWrapper.classList.add(
+                    "submenu-active"
+                );
+                collectionsTrigger.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+                collectionsPanel.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+            }
+        );
+        /* ---------------------------------------------
+           BACK COLLECTIONS
+        --------------------------------------------- */
+        collectionsBack.addEventListener(
+            "click",
+            () => {
+                collectionsWrapper.classList.remove(
+                    "submenu-active"
+                );
+                collectionsTrigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+                collectionsPanel.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+            }
+        );
+    }
+    /* =====================================================
        CLOSE ALL SUBMENUS
        ===================================================== */
     function closeAllSubmenus() {
-        if (!collectionsWrapper) {
-            return;
-        }
-        collectionsWrapper.classList.remove(
-            "submenu-active"
-        );
-        const button =
-            collectionsWrapper.querySelector(
-                ".nav-submenu-trigger"
+        if (collectionsWrapper) {
+            collectionsWrapper.classList.remove(
+                "submenu-active"
             );
-        const submenu =
-            collectionsWrapper.querySelector(
-                ".nav-submenu"
-            );
-        if (button) {
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-        }
-        if (submenu) {
-            submenu.setAttribute(
-                "aria-hidden",
-                "true"
-            );
+            const collectionTrigger =
+                collectionsWrapper.querySelector(
+                    ".nav-submenu-trigger"
+                );
+            const collectionPanel =
+                collectionsWrapper.querySelector(
+                    ".nav-submenu"
+                );
+            if (collectionTrigger) {
+                collectionTrigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+            if (collectionPanel) {
+                collectionPanel.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+            }
+            collectionsWrapper
+                .querySelectorAll(
+                    ".nav-category-wrapper"
+                )
+                .forEach((wrapper) => {
+                    wrapper.classList.remove(
+                        "category-active"
+                    );
+                    const trigger =
+                        wrapper.querySelector(
+                            ".nav-category-trigger"
+                        );
+                    const panel =
+                        wrapper.querySelector(
+                            ".nav-category-submenu"
+                        );
+                    if (trigger) {
+                        trigger.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+                    }
+                    if (panel) {
+                        panel.setAttribute(
+                            "aria-hidden",
+                            "true"
+                        );
+                    }
+                });
         }
     }
     /* =====================================================
-       CLOSE NORMAL NAVIGATION LINKS
+       NORMAL LINKS
        ===================================================== */
     navigation
         .querySelectorAll(
@@ -334,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
     /* =====================================================
-       ESCAPE KEY
+       ESCAPE
        ===================================================== */
     document.addEventListener(
         "keydown",
@@ -344,39 +511,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (
                 collectionsWrapper &&
+                collectionsWrapper.querySelector(
+                    ".nav-category-wrapper.category-active"
+                )
+            ) {
+                const activeCategory =
+                    collectionsWrapper.querySelector(
+                        ".nav-category-wrapper.category-active"
+                    );
+                activeCategory.classList.remove(
+                    "category-active"
+                );
+                return;
+            }
+            if (
+                collectionsWrapper &&
                 collectionsWrapper.classList.contains(
                     "submenu-active"
                 )
             ) {
-                closeAllSubmenus();
-                return;
-            }
-            if (
-                navigation.classList.contains(
-                    "open"
-                )
-            ) {
-                closeMenu();
-            }
-        }
-    );
-    /* =====================================================
-       CLICK OUTSIDE
-       ===================================================== */
-    document.addEventListener(
-        "click",
-        (event) => {
-            if (
-                !navigation.classList.contains(
-                    "open"
-                )
-            ) {
-                return;
-            }
-            if (
-                navigation.contains(event.target) ||
-                menuButton.contains(event.target)
-            ) {
+                collectionsWrapper.classList.remove(
+                    "submenu-active"
+                );
                 return;
             }
             closeMenu();
@@ -419,7 +575,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
     /* =====================================================
-       HEADER SCROLL BEHAVIOR
+       HEADER SCROLL
        ===================================================== */
     let lastScrollY =
         window.scrollY;
