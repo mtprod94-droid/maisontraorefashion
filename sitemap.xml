@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/collections.html</loc>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/hommes.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/femmes.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/enfants.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/evenements.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/about.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/rendez-vous.html</loc>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://mtprod94-droid.github.io/maisontraorefashion/contact.html</loc>
+        <priority>0.9</priority>
+    </url>
+</urlset>
