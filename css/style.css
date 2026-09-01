@@ -1,6 +1,6 @@
 /* =========================================================
    MAISON TRAORÉ FASHION
-   MOBILE-FIRST HAUTE COUTURE
+   MOBILE-FIRST / HAUTE COUTURE
    ========================================================= */
 /* =========================================================
    01 — RESET
@@ -17,12 +17,13 @@ html {
     background: #090909;
 }
 body {
-    min-width: 320px;
     width: 100%;
+    min-width: 320px;
     overflow-x: hidden;
     background: #090909;
     color: #f3eee6;
     font-family: "Montserrat", Arial, sans-serif;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -36,13 +37,14 @@ a {
     text-decoration: none;
 }
 button {
-    font: inherit;
     border: 0;
     background: none;
     color: inherit;
+    font: inherit;
 }
 img {
     display: block;
+    width: 100%;
     max-width: 100%;
 }
 ::selection {
@@ -50,20 +52,22 @@ img {
     color: #090909;
 }
 /* =========================================================
-   02 — VARIABLES
+   02 — DESIGN VARIABLES
    ========================================================= */
 :root {
     --black: #090909;
-    --black-soft: #111111;
+    --black-soft: #101010;
     --black-light: #181818;
     --cream: #f3eee6;
-    --cream-dark: #e5ddd1;
+    --cream-dark: #ded5c8;
     --gold: #b89a5a;
-    --gold-light: #d2b978;
-    --gold-dark: #8e713d;
+    --gold-light: #d4bc82;
+    --gold-dark: #806637;
     --gray: #99938b;
+    --gray-dark: #68635d;
     --white: #ffffff;
     --border-dark: rgba(255,255,255,0.11);
+    --border-gold: rgba(184,154,90,0.35);
     --border-light: rgba(0,0,0,0.12);
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans: "Montserrat", Arial, sans-serif;
@@ -77,11 +81,11 @@ h2,
 h3 {
     font-family: var(--serif);
     font-weight: 400;
-    line-height: 0.94;
+    line-height: 0.95;
     letter-spacing: -0.035em;
 }
 h1 {
-    font-size: clamp(4rem, 18vw, 6rem);
+    font-size: clamp(4rem, 18vw, 6.5rem);
 }
 h2 {
     font-size: clamp(3rem, 14vw, 5rem);
@@ -97,7 +101,7 @@ em {
     margin-bottom: 18px;
     color: var(--gold-light);
     font-family: var(--sans);
-    font-size: 0.6rem;
+    font-size: 0.59rem;
     font-weight: 500;
     letter-spacing: 0.28em;
     line-height: 1.5;
@@ -127,7 +131,7 @@ em {
     width: 100%;
     height: 74px;
     padding: 0 20px;
-    background: rgba(9,9,9,0.72);
+    background: rgba(9,9,9,0.78);
     border-bottom: 1px solid var(--border-dark);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -150,9 +154,9 @@ em {
 .brand-small {
     color: var(--cream);
     font-family: var(--sans);
-    font-size: 0.39rem;
+    font-size: 0.38rem;
     font-weight: 400;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
 }
 .brand-name {
     margin: 5px 0;
@@ -163,7 +167,7 @@ em {
     letter-spacing: 0.05em;
 }
 /* =========================================================
-   06 — MENU TOGGLE
+   06 — MOBILE MENU BUTTON
    ========================================================= */
 .menu-toggle {
     position: relative;
@@ -185,7 +189,8 @@ em {
     transform-origin: center;
     transition:
         transform 0.5s var(--ease),
-        width 0.4s var(--ease);
+        width 0.4s var(--ease),
+        opacity 0.3s ease;
 }
 .menu-toggle span:nth-child(2) {
     width: 19px;
@@ -206,7 +211,7 @@ em {
     transform: translateY(-7px) rotate(-45deg);
 }
 /* =========================================================
-   07 — NAVIGATION
+   07 — MOBILE NAVIGATION
    ========================================================= */
 .main-navigation {
     position: fixed;
@@ -276,11 +281,11 @@ em {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(
-            135deg,
-            #17130e 0%,
-            #090909 48%,
-            #15110c 100%
+        radial-gradient(
+            circle at 70% 25%,
+            #302719 0%,
+            #16120d 28%,
+            #090909 70%
         );
     transform: scale(1.02);
 }
@@ -290,9 +295,9 @@ em {
     background:
         linear-gradient(
             to top,
-            rgba(9,9,9,0.98) 5%,
-            rgba(9,9,9,0.65) 48%,
-            rgba(9,9,9,0.2) 100%
+            rgba(9,9,9,0.98) 4%,
+            rgba(9,9,9,0.7) 48%,
+            rgba(9,9,9,0.15) 100%
         );
 }
 .hero-content {
@@ -324,7 +329,69 @@ em {
     }
 }
 /* =========================================================
-   09 — HERO SCROLL
+   09 — PAGE HERO
+   ========================================================= */
+.page-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 72svh;
+    padding: 130px 24px 75px;
+    overflow: hidden;
+    background: var(--black);
+}
+.page-hero-background {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            #2b2418 0%,
+            #15120e 30%,
+            #090909 75%
+        );
+    transform: scale(1.03);
+}
+.page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(9,9,9,0.98) 5%,
+            rgba(9,9,9,0.68) 55%,
+            rgba(9,9,9,0.2) 100%
+        );
+}
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    animation:
+        page-hero-in 1s 0.1s both var(--ease);
+}
+.page-hero-content h1 {
+    margin-bottom: 25px;
+}
+.hero-description {
+    max-width: 470px;
+    color: rgba(243,238,230,0.7);
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+@keyframes page-hero-in {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================================================
+   10 — HERO SCROLL
    ========================================================= */
 .hero-scroll {
     position: absolute;
@@ -359,7 +426,7 @@ em {
     }
 }
 /* =========================================================
-   10 — BUTTON
+   11 — BUTTONS
    ========================================================= */
 .primary-button {
     display: inline-flex;
@@ -384,7 +451,7 @@ em {
     transform: translateY(-3px);
 }
 /* =========================================================
-   11 — SECTION LABEL
+   12 — SECTION LABEL
    ========================================================= */
 .section-label {
     margin-bottom: 45px;
@@ -398,7 +465,7 @@ em {
     color: var(--gold-dark);
 }
 /* =========================================================
-   12 — INTRO
+   13 — INTRO
    ========================================================= */
 .intro {
     padding: 90px 24px;
@@ -415,7 +482,7 @@ em {
     color: #625d56;
 }
 /* =========================================================
-   13 — TEXT LINK
+   14 — TEXT LINK
    ========================================================= */
 .text-link {
     display: inline-flex;
@@ -442,8 +509,8 @@ em {
     color: var(--gold-dark);
 }
 /* =========================================================
-   14 — COLLECTIONS
-   ========================================================= */
+   15 — COLLECTION PREVIEW
+========================================================= */
 .collections-preview {
     padding: 90px 20px 100px;
     background: var(--black);
@@ -461,9 +528,6 @@ em {
     font-size: 0.8rem;
     line-height: 1.9;
 }
-/* =========================================================
-   15 — COLLECTION LIST
-   ========================================================= */
 .collection-list {
     border-top: 1px solid var(--border-dark);
 }
@@ -518,8 +582,158 @@ em {
     margin-top: 45px;
 }
 /* =========================================================
-   16 — ATELIER
-   ========================================================= */
+   16 — CATALOGUE PAGE
+========================================================= */
+.catalog {
+    padding: 80px 20px 100px;
+    background: var(--black);
+}
+.catalog-header {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+.catalog-header h2 {
+    max-width: 650px;
+}
+.heading-description {
+    max-width: 520px;
+    margin-top: 25px;
+    color: var(--gray);
+    font-size: 0.82rem;
+    line-height: 2;
+}
+/* =========================================================
+   17 — BREADCRUMB
+========================================================= */
+.menu-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 55px;
+    color: var(--gray);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.menu-breadcrumb a {
+    color: var(--gold-light);
+    transition: color 0.3s ease;
+}
+.menu-breadcrumb a:hover {
+    color: var(--white);
+}
+.menu-breadcrumb strong {
+    color: var(--cream);
+    font-weight: 400;
+}
+/* =========================================================
+   18 — CATALOGUE GRID
+========================================================= */
+.catalog-grid {
+    display: grid;
+    gap: 18px;
+}
+.catalog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 390px;
+    overflow: hidden;
+    background: var(--black-light);
+    border: 1px solid var(--border-dark);
+    transition:
+        transform 0.6s var(--ease),
+        border-color 0.4s ease;
+}
+.catalog-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-gold);
+}
+.catalog-card-image {
+    position: relative;
+    min-height: 230px;
+    background:
+        linear-gradient(
+            135deg,
+            #262019,
+            #11100e
+        );
+    overflow: hidden;
+}
+.catalog-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(9,9,9,0.5)
+        );
+}
+.catalog-men {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #3a3023,
+            #11100e 70%
+        );
+}
+.catalog-women {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #33291f,
+            #11100e 70%
+        );
+}
+.catalog-children {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #302a21,
+            #11100e 70%
+        );
+}
+.catalog-events {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #3a2d1d,
+            #11100e 70%
+        );
+}
+.catalog-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 25px 22px 28px;
+    background: var(--black-light);
+}
+.catalog-card-content > span {
+    margin-bottom: 8px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+}
+.catalog-card-content h3 {
+    margin-bottom: 10px;
+    color: var(--cream);
+    font-size: 2.3rem;
+}
+.catalog-card-content p {
+    margin-top: auto;
+    color: var(--gray);
+    font-size: 0.72rem;
+    line-height: 1.8;
+}
+/* =========================================================
+   19 — ATELIER
+========================================================= */
 .atelier {
     position: relative;
     min-height: 650px;
@@ -552,8 +766,8 @@ em {
     max-width: 600px;
 }
 /* =========================================================
-   17 — APPOINTMENT
-   ========================================================= */
+   20 — APPOINTMENT
+========================================================= */
 .appointment {
     padding: 100px 24px;
     background:
@@ -579,8 +793,8 @@ em {
     line-height: 1.9;
 }
 /* =========================================================
-   18 — FOOTER
-   ========================================================= */
+   21 — FOOTER
+========================================================= */
 .site-footer {
     padding: 65px 24px 35px;
     background: #060606;
@@ -642,8 +856,8 @@ em {
     font-size: 0.55rem;
 }
 /* =========================================================
-   19 — WHATSAPP
-   ========================================================= */
+   22 — WHATSAPP
+========================================================= */
 .whatsapp-button {
     position: fixed;
     z-index: 900;
@@ -661,7 +875,6 @@ em {
         0 12px 35px rgba(0,0,0,0.4);
     font-size: 0.55rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
     transition:
         transform 0.5s var(--ease),
         box-shadow 0.5s var(--ease);
@@ -672,15 +885,29 @@ em {
         0 16px 45px rgba(0,0,0,0.5);
 }
 /* =========================================================
-   20 — FOCUS
-   ========================================================= */
+   23 — SCROLL REVEAL
+========================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.9s var(--ease),
+        transform 0.9s var(--ease);
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================================================
+   24 — FOCUS
+========================================================= */
 :focus-visible {
     outline: 1px solid var(--gold-light);
     outline-offset: 5px;
 }
 /* =========================================================
-   21 — REDUCED MOTION
-   ========================================================= */
+   25 — REDUCED MOTION
+========================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -694,5 +921,5 @@ em {
     }
 }
 /* =========================================================
-   END
+   END — MOBILE FIRST
    ========================================================= */
