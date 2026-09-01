@@ -21,47 +21,379 @@
 
     <!-- ================= HEADER ================= -->
 
-    <header class="header">
-
-    <a href="index.html" class="logo">
+   <header class="header">
+<a href="index.html" class="logo" aria-label="Maison Traoré Fashion">
     <span>MAISON</span>
     <strong>TRAORÉ</strong>
     <span>FASHION</span>
 </a>
-
-    <nav class="navigation">
-
-        <a href="index.html">Accueil</a>
-
-        <a href="about.html">La Maison</a>
-
-        <a href="collections.html">Collections</a>
-
-        <a href="index.html#atelier">L'Atelier</a>
-
-        <a href="rendez-vous.html">Rendez-vous</a>
-
-        <a href="contact.html">Contact</a>
-
-    </nav>
-
-    <a href="rendez-vous.html" class="header-button">
-        Rendez-vous
-    </a>
-
-    <button
+<nav class="navigation" id="main-navigation" aria-label="Navigation principale">
+    <!-- MENU PRINCIPAL -->
+    <div class="menu-panel menu-panel-main active" data-panel="main">
+        <div class="menu-panel-header">
+            <span class="menu-label">MENU</span>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-links">
+            <a href="index.html" class="menu-link">
+                <span>Accueil</span>
+            </a>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="maison"
+            >
+                <span>La Maison</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="collections"
+            >
+                <span>Collections</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <a href="index.html#atelier" class="menu-link">
+                <span>L'Atelier</span>
+            </a>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="services"
+            >
+                <span>Services</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <a href="rendez-vous.html" class="menu-link">
+                <span>Rendez-vous</span>
+            </a>
+            <a href="contact.html" class="menu-link">
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+    <!-- LA MAISON -->
+    <div class="menu-panel" data-panel="maison">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="main"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Menu</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-links">
+            <a href="about.html" class="menu-link">
+                <span>À propos</span>
+            </a>
+            <a href="about.html#savoir-faire" class="menu-link">
+                <span>Notre savoir-faire</span>
+            </a>
+            <a href="index.html#atelier" class="menu-link">
+                <span>L'Atelier</span>
+            </a>
+        </div>
+    </div>
+    <!-- COLLECTIONS -->
+    <div class="menu-panel" data-panel="collections">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="main"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Menu</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>COLLECTIONS</span>
+            <small>Maison Traoré Fashion</small>
+        </div>
+        <div class="menu-links">
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="hommes"
+            >
+                <span>Hommes</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="femmes"
+            >
+                <span>Femmes</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="enfants"
+            >
+                <span>Enfants</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <button
+                type="button"
+                class="menu-link menu-next"
+                data-target="evenements"
+            >
+                <span>Événements</span>
+                <span class="menu-arrow">›</span>
+            </button>
+            <a href="collections.html" class="menu-link menu-all">
+                <span>Voir toute la collection</span>
+                <span class="menu-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <!-- HOMMES -->
+    <div class="menu-panel" data-panel="hommes">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="collections"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Collections</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>HOMMES</span>
+            <small>Collection masculine</small>
+        </div>
+        <div class="menu-links">
+            <a href="hommes.html#costumes" class="menu-link">
+                <span>Costumes</span>
+            </a>
+            <a href="hommes.html#ensembles" class="menu-link">
+                <span>Ensembles</span>
+            </a>
+            <a href="hommes.html#chemises" class="menu-link">
+                <span>Chemises</span>
+            </a>
+            <a href="hommes.html#traditionnel" class="menu-link">
+                <span>Traditionnel</span>
+            </a>
+            <a href="hommes.html" class="menu-link menu-all">
+                <span>Voir la collection Hommes</span>
+                <span class="menu-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <!-- FEMMES -->
+    <div class="menu-panel" data-panel="femmes">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="collections"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Collections</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>FEMMES</span>
+            <small>Collection féminine</small>
+        </div>
+        <div class="menu-links">
+            <a href="femmes.html#robes" class="menu-link">
+                <span>Robes</span>
+            </a>
+            <a href="femmes.html#ensembles" class="menu-link">
+                <span>Ensembles</span>
+            </a>
+            <a href="femmes.html#haute-couture" class="menu-link">
+                <span>Haute Couture</span>
+            </a>
+            <a href="femmes.html#traditionnel" class="menu-link">
+                <span>Traditionnel</span>
+            </a>
+            <a href="femmes.html" class="menu-link menu-all">
+                <span>Voir la collection Femmes</span>
+                <span class="menu-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <!-- ENFANTS -->
+    <div class="menu-panel" data-panel="enfants">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="collections"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Collections</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>ENFANTS</span>
+            <small>Collection enfants</small>
+        </div>
+        <div class="menu-links">
+            <a href="enfants.html#garcons" class="menu-link">
+                <span>Garçons</span>
+            </a>
+            <a href="enfants.html#filles" class="menu-link">
+                <span>Filles</span>
+            </a>
+            <a href="enfants.html#ceremonie" class="menu-link">
+                <span>Cérémonie</span>
+            </a>
+            <a href="enfants.html" class="menu-link menu-all">
+                <span>Voir la collection Enfants</span>
+                <span class="menu-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <!-- ÉVÉNEMENTS -->
+    <div class="menu-panel" data-panel="evenements">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="collections"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Collections</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>ÉVÉNEMENTS</span>
+            <small>Créations pour vos moments d'exception</small>
+        </div>
+        <div class="menu-links">
+            <a href="evenements.html#mariage" class="menu-link">
+                <span>Mariage</span>
+            </a>
+            <a href="evenements.html#gala" class="menu-link">
+                <span>Gala</span>
+            </a>
+            <a href="evenements.html#ceremonie" class="menu-link">
+                <span>Cérémonie</span>
+            </a>
+            <a href="evenements.html#soiree" class="menu-link">
+                <span>Soirée</span>
+            </a>
+            <a href="evenements.html" class="menu-link menu-all">
+                <span>Voir les événements</span>
+                <span class="menu-arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <!-- SERVICES -->
+    <div class="menu-panel" data-panel="services">
+        <div class="menu-panel-header">
+            <button
+                type="button"
+                class="menu-back"
+                data-back="main"
+            >
+                <span class="back-arrow">‹</span>
+                <span>Menu</span>
+            </button>
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fermer le menu"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="menu-section-title">
+            <span>SERVICES</span>
+            <small>L'excellence sur mesure</small>
+        </div>
+        <div class="menu-links">
+            <a href="rendez-vous.html" class="menu-link">
+                <span>Sur mesure</span>
+            </a>
+            <a href="rendez-vous.html" class="menu-link">
+                <span>Haute Couture</span>
+            </a>
+            <a href="rendez-vous.html" class="menu-link">
+                <span>Stylisme</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<a href="rendez-vous.html" class="header-button">
+    Rendez-vous
+</a>
+<button
     class="menu-button"
     type="button"
-    aria-label="Menu"
-    onclick="
-        document.querySelector('.navigation').classList.toggle('menu-open');
-        this.classList.toggle('active');
-    "
+    aria-label="Ouvrir le menu"
+    aria-controls="main-navigation"
+    aria-expanded="false"
 >
     <span></span>
     <span></span>
 </button>
-
 </header>
 
 
