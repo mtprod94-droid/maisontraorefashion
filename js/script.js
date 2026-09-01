@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        MAIN MENU
        ===================================================== */
-    function openMenu() {
+    const openMenu = () => {
         navigation.classList.add("open");
         menuButton.classList.add("active");
         menuButton.setAttribute(
@@ -26,11 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-label",
             "Fermer le menu"
         );
-        document.body.classList.add(
-            "menu-open"
-        );
-    }
-    function closeMenu() {
+        document.body.classList.add("menu-open");
+    };
+    const closeMenu = () => {
         navigation.classList.remove("open");
         menuButton.classList.remove("active");
         menuButton.setAttribute(
@@ -41,18 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-label",
             "Ouvrir le menu"
         );
-        document.body.classList.remove(
-            "menu-open"
-        );
+        document.body.classList.remove("menu-open");
         closeAllSubmenus();
-    }
+    };
     menuButton.addEventListener(
         "click",
         () => {
             if (
-                navigation.classList.contains(
-                    "open"
-                )
+                navigation.classList.contains("open")
             ) {
                 closeMenu();
             } else {
@@ -95,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        CREATE CATEGORY WITH THIRD LEVEL
        ===================================================== */
-    function createCategory(
+    function createCategorySubmenu(
         title,
         categories
     ) {
@@ -103,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.createElement("div");
         wrapper.className =
             "nav-category-wrapper";
-        /* -----------------------------------------------
-           CATEGORY BUTTON
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           CATEGORY TRIGGER
+        --------------------------------------------- */
         const trigger =
             document.createElement("button");
         trigger.type = "button";
@@ -123,75 +117,101 @@ document.addEventListener("DOMContentLoaded", () => {
                 ›
             </span>
         `;
-        /* -----------------------------------------------
-           THIRD LEVEL
-        ------------------------------------------------ */
-        const submenu =
+        /* ---------------------------------------------
+           CATEGORY PANEL
+        --------------------------------------------- */
+        const panel =
             document.createElement("div");
-        submenu.className =
+        panel.className =
             "nav-category-submenu";
-        submenu.setAttribute(
+        panel.setAttribute(
             "aria-hidden",
             "true"
         );
-        /* -----------------------------------------------
+        /* ---------------------------------------------
            BACK BUTTON
-        ------------------------------------------------ */
-        const submenuHeader =
+        --------------------------------------------- */
+        const categoryHeader =
             document.createElement("div");
-        submenuHeader.className =
+        categoryHeader.className =
             "nav-category-header";
-        const backButton =
+        const back =
             document.createElement("button");
-        backButton.type = "button";
-        backButton.className =
+        back.type = "button";
+        back.className =
             "nav-category-back";
-        backButton.innerHTML = `
+        back.innerHTML = `
             <span>‹</span>
             <span>
                 ${title}
             </span>
         `;
-        submenuHeader.appendChild(
-            backButton
-        );
-        submenu.appendChild(
-            submenuHeader
-        );
-        /* -----------------------------------------------
-           CATEGORY ITEMS
-        ------------------------------------------------ */
+        categoryHeader.appendChild(back);
+        panel.appendChild(categoryHeader);
+        /* ---------------------------------------------
+           CATEGORY LINKS
+        --------------------------------------------- */
         categories.forEach(
             (category, index) => {
                 const link =
                     createLink(
                         category.title,
                         category.url,
-                        String(index + 1)
-                            .padStart(2, "0")
+                        String(index + 1).padStart(
+                            2,
+                            "0"
+                        )
                     );
-                submenu.appendChild(
-                    link
-                );
+                panel.appendChild(link);
             }
         );
-        /* -----------------------------------------------
+        /* ---------------------------------------------
            ASSEMBLE
-        ------------------------------------------------ */
-        wrapper.appendChild(
-            trigger
-        );
-        wrapper.appendChild(
-            submenu
-        );
-        /* -----------------------------------------------
-           OPEN THIRD LEVEL
-        ------------------------------------------------ */
+        --------------------------------------------- */
+        wrapper.appendChild(trigger);
+        wrapper.appendChild(panel);
+        /* ---------------------------------------------
+           OPEN
+        --------------------------------------------- */
         trigger.addEventListener(
             "click",
             (event) => {
                 event.preventDefault();
                 event.stopPropagation();
+                /* Close other category panels */
+                navigation
+                    .querySelectorAll(
+                        ".nav-category-wrapper.category-active"
+                    )
+                    .forEach((activeWrapper) => {
+                        if (
+                            activeWrapper !== wrapper
+                        ) {
+                            activeWrapper.classList.remove(
+                                "category-active"
+                            );
+                            const activeTrigger =
+                                activeWrapper.querySelector(
+                                    ".nav-category-trigger"
+                                );
+                            const activePanel =
+                                activeWrapper.querySelector(
+                                    ".nav-category-submenu"
+                                );
+                            if (activeTrigger) {
+                                activeTrigger.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+                            }
+                            if (activePanel) {
+                                activePanel.setAttribute(
+                                    "aria-hidden",
+                                    "true"
+                                );
+                            }
+                        }
+                    });
                 wrapper.classList.add(
                     "category-active"
                 );
@@ -199,16 +219,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     "aria-expanded",
                     "true"
                 );
-                submenu.setAttribute(
+                panel.setAttribute(
                     "aria-hidden",
                     "false"
                 );
             }
         );
-        /* -----------------------------------------------
+        /* ---------------------------------------------
            BACK
-        ------------------------------------------------ */
-        backButton.addEventListener(
+        --------------------------------------------- */
+        back.addEventListener(
             "click",
             (event) => {
                 event.preventDefault();
@@ -220,16 +240,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     "aria-expanded",
                     "false"
                 );
-                submenu.setAttribute(
+                panel.setAttribute(
                     "aria-hidden",
                     "true"
                 );
             }
         );
-        /* -----------------------------------------------
-           CLOSE AFTER CATEGORY LINK
-        ------------------------------------------------ */
-        submenu
+        /* ---------------------------------------------
+           CLOSE AFTER LINK
+        --------------------------------------------- */
+        panel
             .querySelectorAll("a")
             .forEach((link) => {
                 link.addEventListener(
@@ -253,20 +273,18 @@ document.addEventListener("DOMContentLoaded", () => {
                         .toLowerCase() ===
                     "collections"
             );
-    let collectionsWrapper =
-        null;
+    let collectionsWrapper = null;
     if (collectionsLink) {
         collectionsWrapper =
             document.createElement("div");
         collectionsWrapper.className =
             "nav-submenu-wrapper";
-        /* -----------------------------------------------
-           COLLECTIONS BUTTON
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           COLLECTIONS TRIGGER
+        --------------------------------------------- */
         const collectionsTrigger =
             document.createElement("button");
-        collectionsTrigger.type =
-            "button";
+        collectionsTrigger.type = "button";
         collectionsTrigger.className =
             "nav-submenu-trigger";
         collectionsTrigger.setAttribute(
@@ -281,28 +299,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 ›
             </span>
         `;
-        /* -----------------------------------------------
-           COLLECTIONS SUBMENU
-        ------------------------------------------------ */
-        const collectionsSubmenu =
+        /* ---------------------------------------------
+           COLLECTIONS PANEL
+        --------------------------------------------- */
+        const collectionsPanel =
             document.createElement("div");
-        collectionsSubmenu.className =
+        collectionsPanel.className =
             "nav-submenu";
-        collectionsSubmenu.setAttribute(
+        collectionsPanel.setAttribute(
             "aria-hidden",
             "true"
         );
-        /* -----------------------------------------------
-           BACK
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           COLLECTIONS HEADER
+        --------------------------------------------- */
         const collectionsHeader =
             document.createElement("div");
         collectionsHeader.className =
             "nav-submenu-header";
         const collectionsBack =
             document.createElement("button");
-        collectionsBack.type =
-            "button";
+        collectionsBack.type = "button";
         collectionsBack.className =
             "nav-submenu-back";
         collectionsBack.innerHTML = `
@@ -314,12 +331,12 @@ document.addEventListener("DOMContentLoaded", () => {
         collectionsHeader.appendChild(
             collectionsBack
         );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             collectionsHeader
         );
-        /* -----------------------------------------------
-           CATALOGUE
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           MAIN CATALOGUE
+        --------------------------------------------- */
         const catalogue =
             createLink(
                 "Voir le catalogue",
@@ -328,14 +345,14 @@ document.addEventListener("DOMContentLoaded", () => {
         catalogue.classList.add(
             "nav-submenu-main"
         );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             catalogue
         );
-        /* -----------------------------------------------
+        /* =================================================
            HOMMES
-        ------------------------------------------------ */
+           ================================================= */
         const hommes =
-            createCategory(
+            createCategorySubmenu(
                 "Hommes",
                 [
                     {
@@ -365,14 +382,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 ]
             );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             hommes
         );
-        /* -----------------------------------------------
+        /* =================================================
            FEMMES
-        ------------------------------------------------ */
+           ================================================= */
         const femmes =
-            createCategory(
+            createCategorySubmenu(
                 "Femmes",
                 [
                     {
@@ -402,48 +419,93 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 ]
             );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             femmes
         );
-        /* -----------------------------------------------
+        /* =================================================
            ENFANTS
-        ------------------------------------------------ */
+           ================================================= */
         const enfants =
-            createLink(
+            createCategorySubmenu(
                 "Enfants",
-                "enfants.html",
-                "03"
+                [
+                    {
+                        title: "Bébés",
+                        url:
+                            "enfants.html#bebes"
+                    },
+                    {
+                        title: "Garçons",
+                        url:
+                            "enfants.html#garcons"
+                    },
+                    {
+                        title: "Filles",
+                        url:
+                            "enfants.html#filles"
+                    },
+                    {
+                        title: "Ensembles",
+                        url:
+                            "enfants.html#ensembles"
+                    },
+                    {
+                        title: "Cérémonie",
+                        url:
+                            "enfants.html#ceremonie"
+                    }
+                ]
             );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             enfants
         );
-        /* -----------------------------------------------
+        /* =================================================
            ÉVÉNEMENTS
-        ------------------------------------------------ */
+           ================================================= */
         const evenements =
-            createLink(
+            createCategorySubmenu(
                 "Événements",
-                "evenements.html",
-                "04"
+                [
+                    {
+                        title: "Mariage",
+                        url:
+                            "evenements.html#mariage"
+                    },
+                    {
+                        title: "Cérémonie",
+                        url:
+                            "evenements.html#ceremonie"
+                    },
+                    {
+                        title: "Soirée",
+                        url:
+                            "evenements.html#soiree"
+                    },
+                    {
+                        title: "Événement professionnel",
+                        url:
+                            "evenements.html#professionnel"
+                    }
+                ]
             );
-        collectionsSubmenu.appendChild(
+        collectionsPanel.appendChild(
             evenements
         );
-        /* -----------------------------------------------
-           ASSEMBLE
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           ASSEMBLE COLLECTIONS
+        --------------------------------------------- */
         collectionsWrapper.appendChild(
             collectionsTrigger
         );
         collectionsWrapper.appendChild(
-            collectionsSubmenu
+            collectionsPanel
         );
         collectionsLink.replaceWith(
             collectionsWrapper
         );
-        /* -----------------------------------------------
+        /* ---------------------------------------------
            OPEN COLLECTIONS
-        ------------------------------------------------ */
+        --------------------------------------------- */
         collectionsTrigger.addEventListener(
             "click",
             (event) => {
@@ -456,15 +518,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     "aria-expanded",
                     "true"
                 );
-                collectionsSubmenu.setAttribute(
+                collectionsPanel.setAttribute(
                     "aria-hidden",
                     "false"
                 );
             }
         );
-        /* -----------------------------------------------
-           BACK TO MAIN
-        ------------------------------------------------ */
+        /* ---------------------------------------------
+           BACK TO MAIN MENU
+        --------------------------------------------- */
         collectionsBack.addEventListener(
             "click",
             (event) => {
@@ -477,7 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "aria-expanded",
                     "false"
                 );
-                collectionsSubmenu.setAttribute(
+                collectionsPanel.setAttribute(
                     "aria-hidden",
                     "true"
                 );
@@ -501,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     wrapper.querySelector(
                         ".nav-category-trigger"
                     );
-                const submenu =
+                const panel =
                     wrapper.querySelector(
                         ".nav-category-submenu"
                     );
@@ -511,8 +573,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         "false"
                     );
                 }
-                if (submenu) {
-                    submenu.setAttribute(
+                if (panel) {
+                    panel.setAttribute(
                         "aria-hidden",
                         "true"
                     );
@@ -529,22 +591,22 @@ document.addEventListener("DOMContentLoaded", () => {
         collectionsWrapper.classList.remove(
             "submenu-active"
         );
-        const trigger =
+        const collectionTrigger =
             collectionsWrapper.querySelector(
                 ".nav-submenu-trigger"
             );
-        const submenu =
+        const collectionPanel =
             collectionsWrapper.querySelector(
                 ".nav-submenu"
             );
-        if (trigger) {
-            trigger.setAttribute(
+        if (collectionTrigger) {
+            collectionTrigger.setAttribute(
                 "aria-expanded",
                 "false"
             );
         }
-        if (submenu) {
-            submenu.setAttribute(
+        if (collectionPanel) {
+            collectionPanel.setAttribute(
                 "aria-hidden",
                 "true"
             );
@@ -556,7 +618,7 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
     navigation
         .querySelectorAll(
-            "a"
+            "a:not(.nav-submenu-link)"
         )
         .forEach((link) => {
             link.addEventListener(
@@ -567,7 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
     /* =====================================================
-       ESCAPE
+       ESCAPE KEY
        ===================================================== */
     document.addEventListener(
         "keydown",
@@ -583,6 +645,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 activeCategory.classList.remove(
                     "category-active"
                 );
+                const trigger =
+                    activeCategory.querySelector(
+                        ".nav-category-trigger"
+                    );
+                const panel =
+                    activeCategory.querySelector(
+                        ".nav-category-submenu"
+                    );
+                if (trigger) {
+                    trigger.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+                if (panel) {
+                    panel.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+                }
                 return;
             }
             if (
@@ -594,6 +676,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 collectionsWrapper.classList.remove(
                     "submenu-active"
                 );
+                const trigger =
+                    collectionsWrapper.querySelector(
+                        ".nav-submenu-trigger"
+                    );
+                const panel =
+                    collectionsWrapper.querySelector(
+                        ".nav-submenu"
+                    );
+                if (trigger) {
+                    trigger.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+                if (panel) {
+                    panel.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+                }
                 return;
             }
             closeMenu();
@@ -607,7 +709,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ".reveal"
         );
     if (revealElements.length) {
-        const observer =
+        const revealObserver =
             new IntersectionObserver(
                 (entries, observer) => {
                     entries.forEach(
@@ -631,7 +733,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         revealElements.forEach(
             (element) => {
-                observer.observe(
+                revealObserver.observe(
                     element
                 );
             }
