@@ -1,610 +1,310 @@
-/* =========================================================
-   MAISON TRAORÉ FASHION
-   MOBILE NAVIGATION SYSTEM
-   ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const menuButton =
-        document.querySelector(".menu-toggle");
-    const navigation =
-        document.querySelector(".main-navigation");
-    const header =
-        document.querySelector(".site-header");
-    if (!menuButton || !navigation) {
-        return;
-    }
-    /* =====================================================
-       MAIN MENU
-       ===================================================== */
-    const openMenu = () => {
-        navigation.classList.add("open");
-        menuButton.classList.add("active");
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-        menuButton.setAttribute(
-            "aria-label",
-            "Fermer le menu"
-        );
-        document.body.classList.add("menu-open");
-    };
-    const closeMenu = () => {
-        navigation.classList.remove("open");
-        menuButton.classList.remove("active");
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-        menuButton.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
-        );
-        document.body.classList.remove("menu-open");
-        closeAllSubmenus();
-    };
-    menuButton.addEventListener("click", () => {
-        if (
-            navigation.classList.contains("open")
-        ) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-    /* =====================================================
-       CREATE LINK
-       ===================================================== */
-    function createLink(
-        title,
-        url,
-        number = ""
-    ) {
-        const link =
-            document.createElement("a");
-        link.href = url;
-        link.className =
-            "nav-submenu-link";
-        link.innerHTML = `
-            ${
-                number
-                ? `
-                    <span class="submenu-number">
-                        ${number}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="Collection Hommes — Maison Traoré Fashion. Créations sur mesure et haute couture à Lomé."
+    >
+    <meta name="theme-color" content="#090909">
+    <title>
+        Hommes | Maison Traoré Fashion
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+<body>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="site-header">
+    <a
+        href="index.html"
+        class="brand"
+        aria-label="Maison Traoré Fashion — Accueil"
+    >
+        <span class="brand-small">
+            MAISON
+        </span>
+        <span class="brand-name">
+            TRAORÉ
+        </span>
+        <span class="brand-small">
+            FASHION
+        </span>
+    </a>
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav
+        id="main-navigation"
+        class="main-navigation"
+        aria-label="Navigation principale"
+    >
+        <a href="index.html">
+            Accueil
+        </a>
+        <a href="about.html">
+            La Maison
+        </a>
+        <a href="collections.html">
+            Collections
+        </a>
+        <a href="index.html#atelier">
+            L'Atelier
+        </a>
+        <a href="rendez-vous.html">
+            Rendez-vous
+        </a>
+        <a href="contact.html">
+            Contact
+        </a>
+    </nav>
+</header>
+<!-- =====================================================
+     HERO
+===================================================== -->
+<main>
+    <section class="page-hero">
+        <div class="page-hero-background"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <p class="eyebrow">
+                COLLECTION 01
+            </p>
+            <h1>
+                Hommes
+            </h1>
+            <p class="hero-description">
+                Une collection pensée pour l'homme
+                qui recherche élégance, caractère
+                et précision.
+            </p>
+        </div>
+    </section>
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+    <section class="catalog">
+        <div class="menu-breadcrumb">
+            <a href="collections.html">
+                Collections
+            </a>
+            <span>
+                /
+            </span>
+            <strong>
+                Hommes
+            </strong>
+        </div>
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+        <div class="catalog-header">
+            <div class="section-label">
+                MAISON TRAORÉ — HOMMES
+            </div>
+            <h2>
+                L'élégance
+                <em>masculine.</em>
+            </h2>
+            <p class="heading-description">
+                Costumes, ensembles, vestes et créations
+                sur mesure. Chaque pièce est conçue
+                autour de votre silhouette et de votre
+                identité.
+            </p>
+        </div>
+<!-- =====================================================
+     COLLECTION
+===================================================== -->
+        <div class="collection-list">
+            <!-- MODEL 01 -->
+            <article class="collection-item model-entry">
+                <div class="collection-number">
+                    01
+                </div>
+                <div class="collection-info">
+                    <span>
+                        PIÈCE SUR MESURE
                     </span>
-                  `
-                : ""
-            }
-            <span class="submenu-title">
-                ${title}
-            </span>
-            <span class="submenu-arrow-small">
-                ↗
-            </span>
-        `;
-        return link;
-    }
-    /* =====================================================
-       CREATE CATEGORY SUBMENU
-       ===================================================== */
-    function createCategorySubmenu(
-        title,
-        categories
-    ) {
-        const wrapper =
-            document.createElement("div");
-        wrapper.className =
-            "nav-category-wrapper";
-        /* ---------------------------------------------
-           CATEGORY TRIGGER
-        --------------------------------------------- */
-        const trigger =
-            document.createElement("button");
-        trigger.type = "button";
-        trigger.className =
-            "nav-category-trigger";
-        trigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-        trigger.innerHTML = `
-            <span>
-                ${title}
-            </span>
-            <span class="category-arrow">
-                ›
-            </span>
-        `;
-        /* ---------------------------------------------
-           CATEGORY PANEL
-        --------------------------------------------- */
-        const panel =
-            document.createElement("div");
-        panel.className =
-            "nav-category-submenu";
-        panel.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-        /* ---------------------------------------------
-           BACK BUTTON
-        --------------------------------------------- */
-        const header =
-            document.createElement("div");
-        header.className =
-            "nav-category-header";
-        const back =
-            document.createElement("button");
-        back.type = "button";
-        back.className =
-            "nav-category-back";
-        back.innerHTML = `
-            <span>‹</span>
-            <span>
-                ${title}
-            </span>
-        `;
-        header.appendChild(back);
-        panel.appendChild(header);
-        /* ---------------------------------------------
-           CATEGORY LINKS
-        --------------------------------------------- */
-        categories.forEach(
-            (category, index) => {
-                const link =
-                    createLink(
-                        category.title,
-                        category.url,
-                        String(index + 1).padStart(
-                            2,
-                            "0"
-                        )
-                    );
-                panel.appendChild(link);
-            }
-        );
-        /* ---------------------------------------------
-           ASSEMBLE
-        --------------------------------------------- */
-        wrapper.appendChild(trigger);
-        wrapper.appendChild(panel);
-        /* ---------------------------------------------
-           OPEN
-        --------------------------------------------- */
-        trigger.addEventListener(
-            "click",
-            () => {
-                wrapper.classList.add(
-                    "category-active"
-                );
-                trigger.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-                panel.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-            }
-        );
-        /* ---------------------------------------------
-           BACK
-        --------------------------------------------- */
-        back.addEventListener(
-            "click",
-            () => {
-                wrapper.classList.remove(
-                    "category-active"
-                );
-                trigger.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-                panel.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-            }
-        );
-        /* ---------------------------------------------
-           CLOSE AFTER LINK
-        --------------------------------------------- */
-        panel
-            .querySelectorAll("a")
-            .forEach((link) => {
-                link.addEventListener(
-                    "click",
-                    () => {
-                        closeMenu();
-                    }
-                );
-            });
-        return wrapper;
-    }
-    /* =====================================================
-       COLLECTIONS
-       ===================================================== */
-    const collectionsLink =
-        [...navigation.querySelectorAll("a")]
-            .find(
-                (link) =>
-                    link.textContent
-                        .trim()
-                        .toLowerCase() ===
-                    "collections"
-            );
-    let collectionsWrapper = null;
-    if (collectionsLink) {
-        collectionsWrapper =
-            document.createElement("div");
-        collectionsWrapper.className =
-            "nav-submenu-wrapper";
-        /* ---------------------------------------------
-           COLLECTIONS TRIGGER
-        --------------------------------------------- */
-        const collectionsTrigger =
-            document.createElement("button");
-        collectionsTrigger.type = "button";
-        collectionsTrigger.className =
-            "nav-submenu-trigger";
-        collectionsTrigger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-        collectionsTrigger.innerHTML = `
-            <span>
-                Collections
-            </span>
-            <span class="submenu-arrow">
-                ›
-            </span>
-        `;
-        /* ---------------------------------------------
-           COLLECTIONS PANEL
-        --------------------------------------------- */
-        const collectionsPanel =
-            document.createElement("div");
-        collectionsPanel.className =
-            "nav-submenu";
-        collectionsPanel.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-        /* ---------------------------------------------
-           HEADER
-        --------------------------------------------- */
-        const collectionsHeader =
-            document.createElement("div");
-        collectionsHeader.className =
-            "nav-submenu-header";
-        const collectionsBack =
-            document.createElement("button");
-        collectionsBack.type = "button";
-        collectionsBack.className =
-            "nav-submenu-back";
-        collectionsBack.innerHTML = `
-            <span>‹</span>
-            <span>
-                Collections
-            </span>
-        `;
-        collectionsHeader.appendChild(
-            collectionsBack
-        );
-        collectionsPanel.appendChild(
-            collectionsHeader
-        );
-        /* ---------------------------------------------
-           CATALOGUE
-        --------------------------------------------- */
-        const catalogue =
-            createLink(
-                "Voir le catalogue",
-                "collections.html"
-            );
-        catalogue.classList.add(
-            "nav-submenu-main"
-        );
-        collectionsPanel.appendChild(
-            catalogue
-        );
-        /* ---------------------------------------------
-           HOMMES
-        --------------------------------------------- */
-        const hommes =
-            createCategorySubmenu(
-                "Hommes",
-                [
-                    {
-                        title: "Costumes",
-                        url: "hommes.html#costumes"
-                    },
-                    {
-                        title: "Vestes",
-                        url: "hommes.html#vestes"
-                    },
-                    {
-                        title: "Chemises",
-                        url: "hommes.html#chemises"
-                    },
-                    {
-                        title: "Ensembles",
-                        url: "hommes.html#ensembles"
-                    },
-                    {
-                        title: "Cérémonie",
-                        url: "hommes.html#ceremonie"
-                    }
-                ]
-            );
-        collectionsPanel.appendChild(
-            hommes
-        );
-        /* ---------------------------------------------
-           FEMMES
-        --------------------------------------------- */
-        const femmes =
-            createLink(
-                "Femmes",
-                "femmes.html",
-                "02"
-            );
-        collectionsPanel.appendChild(
-            femmes
-        );
-        /* ---------------------------------------------
-           ENFANTS
-        --------------------------------------------- */
-        const enfants =
-            createLink(
-                "Enfants",
-                "enfants.html",
-                "03"
-            );
-        collectionsPanel.appendChild(
-            enfants
-        );
-        /* ---------------------------------------------
-           ÉVÉNEMENTS
-        --------------------------------------------- */
-        const evenements =
-            createLink(
-                "Événements",
-                "evenements.html",
-                "04"
-            );
-        collectionsPanel.appendChild(
-            evenements
-        );
-        /* ---------------------------------------------
-           ASSEMBLE COLLECTIONS
-        --------------------------------------------- */
-        collectionsWrapper.appendChild(
-            collectionsTrigger
-        );
-        collectionsWrapper.appendChild(
-            collectionsPanel
-        );
-        collectionsLink.replaceWith(
-            collectionsWrapper
-        );
-        /* ---------------------------------------------
-           OPEN COLLECTIONS
-        --------------------------------------------- */
-        collectionsTrigger.addEventListener(
-            "click",
-            () => {
-                collectionsWrapper.classList.add(
-                    "submenu-active"
-                );
-                collectionsTrigger.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-                collectionsPanel.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-            }
-        );
-        /* ---------------------------------------------
-           BACK COLLECTIONS
-        --------------------------------------------- */
-        collectionsBack.addEventListener(
-            "click",
-            () => {
-                collectionsWrapper.classList.remove(
-                    "submenu-active"
-                );
-                collectionsTrigger.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-                collectionsPanel.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-            }
-        );
-    }
-    /* =====================================================
-       CLOSE ALL SUBMENUS
-       ===================================================== */
-    function closeAllSubmenus() {
-        if (collectionsWrapper) {
-            collectionsWrapper.classList.remove(
-                "submenu-active"
-            );
-            const collectionTrigger =
-                collectionsWrapper.querySelector(
-                    ".nav-submenu-trigger"
-                );
-            const collectionPanel =
-                collectionsWrapper.querySelector(
-                    ".nav-submenu"
-                );
-            if (collectionTrigger) {
-                collectionTrigger.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            }
-            if (collectionPanel) {
-                collectionPanel.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-            }
-            collectionsWrapper
-                .querySelectorAll(
-                    ".nav-category-wrapper"
-                )
-                .forEach((wrapper) => {
-                    wrapper.classList.remove(
-                        "category-active"
-                    );
-                    const trigger =
-                        wrapper.querySelector(
-                            ".nav-category-trigger"
-                        );
-                    const panel =
-                        wrapper.querySelector(
-                            ".nav-category-submenu"
-                        );
-                    if (trigger) {
-                        trigger.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-                    }
-                    if (panel) {
-                        panel.setAttribute(
-                            "aria-hidden",
-                            "true"
-                        );
-                    }
-                });
-        }
-    }
-    /* =====================================================
-       NORMAL LINKS
-       ===================================================== */
-    navigation
-        .querySelectorAll(
-            "a:not(.nav-submenu-link)"
-        )
-        .forEach((link) => {
-            link.addEventListener(
-                "click",
-                () => {
-                    closeMenu();
-                }
-            );
-        });
-    /* =====================================================
-       ESCAPE
-       ===================================================== */
-    document.addEventListener(
-        "keydown",
-        (event) => {
-            if (event.key !== "Escape") {
-                return;
-            }
-            if (
-                collectionsWrapper &&
-                collectionsWrapper.querySelector(
-                    ".nav-category-wrapper.category-active"
-                )
-            ) {
-                const activeCategory =
-                    collectionsWrapper.querySelector(
-                        ".nav-category-wrapper.category-active"
-                    );
-                activeCategory.classList.remove(
-                    "category-active"
-                );
-                return;
-            }
-            if (
-                collectionsWrapper &&
-                collectionsWrapper.classList.contains(
-                    "submenu-active"
-                )
-            ) {
-                collectionsWrapper.classList.remove(
-                    "submenu-active"
-                );
-                return;
-            }
-            closeMenu();
-        }
-    );
-    /* =====================================================
-       SCROLL REVEAL
-       ===================================================== */
-    const revealElements =
-        document.querySelectorAll(".reveal");
-    if (revealElements.length) {
-        const revealObserver =
-            new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(
-                        (entry) => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "is-visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-        revealElements.forEach(
-            (element) => {
-                revealObserver.observe(
-                    element
-                );
-            }
-        );
-    }
-    /* =====================================================
-       HEADER SCROLL
-       ===================================================== */
-    let lastScrollY =
-        window.scrollY;
-    window.addEventListener(
-        "scroll",
-        () => {
-            if (!header) {
-                return;
-            }
-            const currentScrollY =
-                window.scrollY;
-            if (
-                currentScrollY >
-                    lastScrollY &&
-                currentScrollY > 120
-            ) {
-                header.classList.add(
-                    "header-hidden"
-                );
-            } else {
-                header.classList.remove(
-                    "header-hidden"
-                );
-            }
-            lastScrollY =
-                currentScrollY;
-        },
-        {
-            passive: true
-        }
-    );
-});
+                    <h3>
+                        Signature
+                    </h3>
+                </div>
+                <span class="collection-arrow">
+                    ↗
+                </span>
+            </article>
+            <!-- MODEL 02 -->
+            <article class="collection-item model-entry">
+                <div class="collection-number">
+                    02
+                </div>
+                <div class="collection-info">
+                    <span>
+                        PIÈCE SUR MESURE
+                    </span>
+                    <h3>
+                        Élégance
+                    </h3>
+                </div>
+                <span class="collection-arrow">
+                    ↗
+                </span>
+            </article>
+            <!-- MODEL 03 -->
+            <article class="collection-item model-entry">
+                <div class="collection-number">
+                    03
+                </div>
+                <div class="collection-info">
+                    <span>
+                        PIÈCE SUR MESURE
+                    </span>
+                    <h3>
+                        Prestige
+                    </h3>
+                </div>
+                <span class="collection-arrow">
+                    ↗
+                </span>
+            </article>
+            <!-- MODEL 04 -->
+            <article class="collection-item model-entry">
+                <div class="collection-number">
+                    04
+                </div>
+                <div class="collection-info">
+                    <span>
+                        PIÈCE SUR MESURE
+                    </span>
+                    <h3>
+                        Héritage
+                    </h3>
+                </div>
+                <span class="collection-arrow">
+                    ↗
+                </span>
+            </article>
+        </div>
+    </section>
+<!-- =====================================================
+     SUR MESURE
+===================================================== -->
+    <section class="appointment">
+        <div class="appointment-content">
+            <p class="eyebrow">
+                CRÉATION SUR MESURE
+            </p>
+            <h2>
+                Votre
+                <em>pièce.</em>
+            </h2>
+            <p>
+                Chaque création peut être adaptée à vos
+                mesures, vos matières et vos envies.
+            </p>
+            <a
+                href="rendez-vous.html"
+                class="primary-button"
+            >
+                Prendre rendez-vous
+            </a>
+        </div>
+    </section>
+</main>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="site-footer">
+    <div class="footer-brand">
+        <span>
+            MAISON
+        </span>
+        <strong>
+            TRAORÉ
+        </strong>
+        <span>
+            FASHION
+        </span>
+    </div>
+    <div class="footer-links">
+        <a href="index.html">
+            Accueil
+        </a>
+        <a href="about.html">
+            La Maison
+        </a>
+        <a href="collections.html">
+            Collections
+        </a>
+        <a href="rendez-vous.html">
+            Rendez-vous
+        </a>
+        <a href="contact.html">
+            Contact
+        </a>
+    </div>
+    <div class="footer-social">
+        <a
+            href="https://www.instagram.com/maison_traore/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Instagram
+        </a>
+        <a
+            href="https://www.tiktok.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            TikTok
+        </a>
+    </div>
+    <p class="copyright">
+        © 2026 Maison Traoré Fashion.
+        Tous droits réservés.
+    </p>
+</footer>
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+<a
+    href="https://wa.me/22890509669"
+    class="whatsapp-button"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contacter Maison Traoré Fashion sur WhatsApp"
+>
+    <span>
+        WhatsApp
+    </span>
+</a>
+<script src="js/script.js"></script>
+</body>
+</html>
