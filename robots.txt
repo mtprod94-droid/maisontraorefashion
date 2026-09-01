@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mtprod94-droid.github.io/maisontraorefashion/sitemap.xml
