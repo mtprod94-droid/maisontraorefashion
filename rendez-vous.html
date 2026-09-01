@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="Prenez rendez-vous avec Maison Traoré Fashion pour votre création sur mesure à Lomé, Togo."
+    >
+    <meta
+        name="theme-color"
+        content="#090909"
+    >
+    <title>
+        Rendez-vous | Maison Traoré Fashion
+    </title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+<body>
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+<header class="site-header">
+    <a
+        href="index.html"
+        class="brand"
+        aria-label="Maison Traoré Fashion — Accueil"
+    >
+        <span class="brand-small">
+            MAISON
+        </span>
+        <span class="brand-name">
+            TRAORÉ
+        </span>
+        <span class="brand-small">
+            FASHION
+        </span>
+    </a>
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav
+        id="main-navigation"
+        class="main-navigation"
+        aria-label="Navigation principale"
+    >
+        <a href="index.html">
+            Accueil
+        </a>
+        <a href="about.html">
+            La Maison
+        </a>
+        <a href="collections.html">
+            Collections
+        </a>
+        <a href="index.html#atelier">
+            L'Atelier
+        </a>
+        <a href="rendez-vous.html">
+            Rendez-vous
+        </a>
+        <a href="contact.html">
+            Contact
+        </a>
+    </nav>
+</header>
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+<main>
+    <!-- =================================================
+         HERO
+         ================================================= -->
+    <section class="page-hero">
+        <div class="page-hero-background"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <p class="eyebrow">
+                MAISON TRAORÉ FASHION
+            </p>
+            <h1>
+                Rendez-vous
+            </h1>
+            <p class="hero-description">
+                Parlons de votre prochaine création
+                et donnons vie à votre idée.
+            </p>
+        </div>
+    </section>
+    <!-- =================================================
+         INTRO
+         ================================================= -->
+    <section class="appointment-page">
+        <div class="appointment-intro">
+            <div class="section-label">
+                SUR MESURE
+            </div>
+            <h2>
+                Votre projet,
+                <em>
+                    notre savoir-faire.
+                </em>
+            </h2>
+            <p>
+                Remplissez le formulaire ci-dessous
+                pour nous présenter votre projet.
+                Nous vous contacterons ensuite afin
+                de confirmer les détails du rendez-vous.
+            </p>
+        </div>
+        <!-- =================================================
+             FORMULAIRE
+             ================================================= -->
+        <form
+            class="appointment-form"
+            action="https://formspree.io/f/xoeabyjj"
+            method="POST"
+        >
+            <!-- NOM -->
+            <div class="form-group">
+                <label for="nom">
+                    Nom complet
+                </label>
+                <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    placeholder="Votre nom"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+            <!-- TÉLÉPHONE -->
+            <div class="form-group">
+                <label for="telephone">
+                    Téléphone / WhatsApp
+                </label>
+                <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    placeholder="+228 ..."
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label for="email">
+                    Adresse e-mail
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="votre@email.com"
+                    autocomplete="email"
+                >
+            </div>
+            <!-- TYPE DE SERVICE -->
+            <div class="form-group">
+                <label for="service">
+                    Type de création
+                </label>
+                <select
+                    id="service"
+                    name="service"
+                    required
+                >
+                    <option
+                        value=""
+                        selected
+                        disabled
+                    >
+                        Sélectionnez une option
+                    </option>
+                    <option value="Costume">
+                        Costume
+                    </option>
+                    <option value="Robe">
+                        Robe
+                    </option>
+                    <option value="Ensemble">
+                        Ensemble
+                    </option>
+                    <option value="Chemise">
+                        Chemise
+                    </option>
+                    <option value="Veste">
+                        Veste
+                    </option>
+                    <option value="Tenue enfant">
+                        Tenue enfant
+                    </option>
+                    <option value="Tenue cérémonie">
+                        Tenue de cérémonie
+                    </option>
+                    <option value="Autre">
+                        Autre
+                    </option>
+                </select>
+            </div>
+            <!-- DATE -->
+            <div class="form-group">
+                <label for="date">
+                    Date souhaitée
+                </label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date_souhaitee"
+                >
+            </div>
+            <!-- HEURE -->
+            <div class="form-group">
+                <label for="heure">
+                    Heure souhaitée
+                </label>
+                <select
+                    id="heure"
+                    name="heure_souhaitee"
+                >
+                    <option
+                        value=""
+                        selected
+                        disabled
+                    >
+                        Choisissez une heure
+                    </option>
+                    <option value="09:00">
+                        09:00
+                    </option>
+                    <option value="10:00">
+                        10:00
+                    </option>
+                    <option value="11:00">
+                        11:00
+                    </option>
+                    <option value="12:00">
+                        12:00
+                    </option>
+                    <option value="13:00">
+                        13:00
+                    </option>
+                    <option value="14:00">
+                        14:00
+                    </option>
+                    <option value="15:00">
+                        15:00
+                    </option>
+                    <option value="16:00">
+                        16:00
+                    </option>
+                    <option value="17:00">
+                        17:00
+                    </option>
+                </select>
+            </div>
+            <!-- MESSAGE -->
+            <div class="form-group form-group-full">
+                <label for="message">
+                    Parlez-nous de votre projet
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Décrivez votre tenue, l'occasion, le tissu souhaité ou toute autre information importante..."
+                    required
+                ></textarea>
+            </div>
+            <!-- BOUTON -->
+            <div class="form-submit">
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Envoyer ma demande
+                </button>
+                <p>
+                    Votre demande sera étudiée
+                    avant confirmation du rendez-vous.
+                </p>
+            </div>
+        </form>
+    </section>
+    <!-- =================================================
+         INFORMATIONS
+         ================================================= -->
+    <section class="appointment-info">
+        <div class="appointment-info-header">
+            <div class="section-label">
+                INFORMATIONS
+            </div>
+            <h2>
+                Avant votre
+                <em>
+                    rendez-vous.
+                </em>
+            </h2>
+        </div>
+        <div class="appointment-info-grid">
+            <article>
+                <span>
+                    01
+                </span>
+                <h3>
+                    Sur rendez-vous
+                </h3>
+                <p>
+                    Lundi — Samedi
+                </p>
+            </article>
+            <article>
+                <span>
+                    02
+                </span>
+                <h3>
+                    L'Atelier
+                </h3>
+                <p>
+                    Legbassito-Assikor,
+                    Lomé, Togo
+                </p>
+            </article>
+            <article>
+                <span>
+                    03
+                </span>
+                <h3>
+                    Contact direct
+                </h3>
+                <p>
+                    WhatsApp disponible
+                    pour vos questions.
+                </p>
+            </article>
+        </div>
+    </section>
+    <!-- =================================================
+         WHATSAPP CTA
+         ================================================= -->
+    <section class="appointment">
+        <div class="appointment-content">
+            <p class="eyebrow">
+                BESOIN D'UNE RÉPONSE RAPIDE ?
+            </p>
+            <h2>
+                Parlons
+                <em>
+                    directement.
+                </em>
+            </h2>
+            <p>
+                Pour une question urgente ou
+                une précision concernant votre projet,
+                contactez-nous directement sur WhatsApp.
+            </p>
+            <a
+                href="https://wa.me/22890509669"
+                class="primary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Contacter sur WhatsApp
+            </a>
+        </div>
+    </section>
+</main>
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="site-footer">
+    <div class="footer-brand">
+        <span>
+            MAISON
+        </span>
+        <strong>
+            TRAORÉ
+        </strong>
+        <span>
+            FASHION
+        </span>
+    </div>
+    <div class="footer-links">
+        <a href="collections.html">
+            Collections
+        </a>
+        <a href="about.html">
+            La Maison
+        </a>
+        <a href="index.html">
+            Accueil
+        </a>
+    </div>
+    <p>
+        © 2026 Maison Traoré Fashion.
+        Tous droits réservés.
+    </p>
+</footer>
+<!-- =====================================================
+     WHATSAPP FLOAT
+     ===================================================== -->
+<a
+    href="https://wa.me/22890509669"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contacter Maison Traoré Fashion sur WhatsApp"
+>
+    WA
+</a>
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+<script src="js/script.js"></script>
+</body>
+</html>
