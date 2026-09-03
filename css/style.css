@@ -2377,3 +2377,35 @@ em {
         height: 34px;
     }
 }
+/* =========================================
+   COLLECTION FEATURE IMAGES
+========================================= */
+
+.collection-feature-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* HOMME — bleibt größer */
+.collection-feature-image.homme {
+    height: 300px;
+}
+
+/* FEMME */
+.collection-feature-image.femme {
+    height: 260px;
+}
+
+/* ENFANT */
+.collection-feature-image.enfant {
+    height: 260px;
+}
+
+/* ÉVÉNEMENTS */
+.collection-feature-image.ceremony {
+    height: 260px;
+}
