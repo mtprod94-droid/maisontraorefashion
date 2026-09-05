@@ -3466,3 +3466,335 @@ em {
         font-size: clamp(3rem, 13vw, 4.5rem);
     }
 }
+/* =========================================================
+   HOMMES — MAISON TRAORÉ FASHION
+   PREMIUM MEN'S CATALOGUE
+   ========================================================= */
+
+.page-hero {
+    min-height: 76svh;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::after {
+    content: "HOMMES";
+    position: absolute;
+    right: -75px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.page-hero h1 {
+    font-size: clamp(4rem, 18vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+}
+
+.hero-description {
+    max-width: 390px;
+    margin-top: 28px;
+    color: rgba(255,255,255,0.68);
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   CATALOGUE HEADER
+   ========================================================= */
+
+.catalog {
+    padding: 85px 22px 110px;
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(185,154,90,0.06),
+            transparent 30%
+        ),
+        #080808;
+}
+
+.catalog-header {
+    max-width: 700px;
+    margin-bottom: 45px;
+}
+
+.catalog-header h2 {
+    margin-bottom: 25px;
+    font-size: clamp(3.2rem, 13vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+}
+
+.catalog-header h2 em {
+    display: block;
+    color: var(--gold-light);
+}
+
+.heading-description {
+    max-width: 500px;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.8rem;
+    line-height: 1.95;
+}
+
+/* =========================================================
+   CATEGORY NAVIGATION
+   ========================================================= */
+
+.catalog-category-nav {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    margin: 0 -22px 80px;
+    padding: 0 22px;
+    border-top: 1px solid rgba(185,154,90,0.16);
+    border-bottom: 1px solid rgba(185,154,90,0.16);
+    scrollbar-width: none;
+}
+
+.catalog-category-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.catalog-category-nav a {
+    flex: 0 0 auto;
+    padding: 18px 18px;
+    color: rgba(255,255,255,0.55);
+    font-family: var(--sans);
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.catalog-category-nav a:first-child {
+    padding-left: 0;
+}
+
+.catalog-category-nav a:hover {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.catalog-category {
+    position: relative;
+    margin-bottom: 105px;
+}
+
+.category-heading {
+    position: relative;
+    margin-bottom: 35px;
+    padding-left: 52px;
+}
+
+.category-heading > span {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+}
+
+.category-heading h2 {
+    margin-bottom: 12px;
+    color: var(--cream);
+    font-size: clamp(2.7rem, 11vw, 4.5rem);
+    line-height: 0.95;
+}
+
+.category-heading p {
+    max-width: 360px;
+    color: rgba(255,255,255,0.48);
+    font-size: 0.73rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.catalog-card {
+    min-height: 390px;
+    background: #10100f;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    transition:
+        transform 0.6s var(--ease),
+        border-color 0.4s ease,
+        box-shadow 0.6s ease;
+}
+
+.catalog-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(185,154,90,0.5);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+.catalog-image {
+    position: relative;
+    min-height: 260px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 18px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #30281d 0%,
+            #15130f 48%,
+            #090909 100%
+        );
+}
+
+.catalog-image::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(185,154,90,0.13);
+    pointer-events: none;
+}
+
+.catalog-image::after {
+    content: "MAISON TRAORÉ";
+    position: absolute;
+    right: 15px;
+    bottom: 13px;
+    color: rgba(185,154,90,0.16);
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.catalog-image span {
+    position: relative;
+    z-index: 2;
+    color: rgba(255,255,255,0.28);
+    font-family: var(--sans);
+    font-size: 0.48rem;
+    letter-spacing: 0.18em;
+}
+
+.catalog-card-info {
+    padding: 22px 18px 25px;
+    background: #0d0d0d;
+}
+
+.catalog-card-info > span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.48rem;
+    letter-spacing: 0.18em;
+}
+
+.catalog-card-info h3 {
+    margin-bottom: 8px;
+    color: var(--cream);
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    line-height: 1;
+}
+
+.catalog-card-info p {
+    color: rgba(255,255,255,0.42);
+    font-size: 0.62rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   CATEGORY SEPARATION
+   ========================================================= */
+
+.catalog-category + .catalog-category {
+    padding-top: 15px;
+}
+
+.catalog-category + .catalog-category::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(185,154,90,0.35),
+            transparent
+        );
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .page-hero {
+        min-height: 70svh;
+    }
+
+    .page-hero::after {
+        right: -95px;
+        font-size: 5.5rem;
+    }
+
+    .catalog {
+        padding: 75px 22px 90px;
+    }
+
+    .catalog-header h2 {
+        font-size: clamp(3.1rem, 14vw, 4.7rem);
+    }
+
+    .catalog-category-nav {
+        margin-bottom: 65px;
+    }
+
+    .catalog-category {
+        margin-bottom: 85px;
+    }
+
+    .catalog-grid {
+        gap: 10px;
+    }
+
+    .catalog-card {
+        min-height: 350px;
+    }
+
+    .catalog-image {
+        min-height: 225px;
+    }
+
+    .category-heading {
+        padding-left: 45px;
+    }
+}
