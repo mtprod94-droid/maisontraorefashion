@@ -2890,3 +2890,209 @@ em {
         margin-top: 40px;
     }
 }
+/* =====================================================
+   LA MAISON — PREMIUM EDITORIAL DESIGN
+   ===================================================== */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 24px;
+}
+
+.about-section .about-content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.about-section .section-label {
+    margin-bottom: 42px;
+}
+
+.about-section .eyebrow {
+    margin-bottom: 18px;
+}
+
+.about-section h2 {
+    margin-bottom: 32px;
+    line-height: 1.05;
+}
+
+.about-section p:not(.eyebrow) {
+    max-width: 650px;
+    margin-bottom: 22px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+/* -----------------------------------------------------
+   ESPRIT DE LA MAISON
+   ----------------------------------------------------- */
+
+.about-dark {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(185, 154, 90, 0.12),
+            transparent 32%
+        ),
+        #0a0a0a;
+}
+
+.about-dark::before {
+    content: "MAISON";
+    position: absolute;
+    right: -45px;
+    top: 70px;
+    color: rgba(185, 154, 90, 0.035);
+    font-family: var(--serif);
+    font-size: 8rem;
+    line-height: 1;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+/* -----------------------------------------------------
+   FONDATEUR
+   ----------------------------------------------------- */
+
+.founder-section {
+    background: #11100d;
+    border-top: 1px solid rgba(185, 154, 90, 0.12);
+    border-bottom: 1px solid rgba(185, 154, 90, 0.12);
+}
+
+.founder-section::before {
+    content: "FONDATEUR";
+    position: absolute;
+    left: -40px;
+    bottom: 80px;
+    color: rgba(255, 255, 255, 0.025);
+    font-family: var(--serif);
+    font-size: 7rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.founder-section h2 em {
+    display: block;
+}
+
+.founder-quote {
+    position: relative;
+    margin: 50px 0 0;
+    padding: 30px 0 5px 25px;
+    border-left: 1px solid var(--gold);
+    color: rgba(255, 255, 255, 0.88);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* -----------------------------------------------------
+   VALEURS
+   ----------------------------------------------------- */
+
+.values-section {
+    background: #080808;
+}
+
+.values-list {
+    margin-top: 55px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.value-item {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.value-item > span {
+    padding-top: 4px;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+}
+
+.value-item h3 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+}
+
+.value-item p {
+    margin: 0 !important;
+    max-width: 520px !important;
+    font-size: 0.88rem !important;
+    line-height: 1.75 !important;
+}
+
+/* -----------------------------------------------------
+   MOBILE
+   ----------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 78px 22px;
+    }
+
+    .about-section .about-content {
+        max-width: none;
+    }
+
+    .about-section .section-label {
+        margin-bottom: 34px;
+    }
+
+    .about-section h2 {
+        margin-bottom: 26px;
+    }
+
+    .about-section p:not(.eyebrow) {
+        font-size: 0.9rem;
+        line-height: 1.85;
+    }
+
+    .about-dark::before {
+        right: -65px;
+        top: 55px;
+        font-size: 6rem;
+    }
+
+    .founder-section::before {
+        left: -45px;
+        bottom: 55px;
+        font-size: 5rem;
+    }
+
+    .founder-quote {
+        margin-top: 40px;
+        padding-left: 20px;
+        font-size: 1.08rem;
+    }
+
+    .values-list {
+        margin-top: 42px;
+    }
+
+    .value-item {
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        padding: 25px 0;
+    }
+
+    .value-item p {
+        font-size: 0.84rem !important;
+    }
+}
