@@ -2571,3 +2571,80 @@ em {
         font-size: 1.35rem;
     }
 }
+/* =====================================================
+   ATELIER IMAGE
+   ===================================================== */
+
+.atelier-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.atelier-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 9, 9, 0.95) 0%,
+            rgba(9, 9, 9, 0.35) 45%,
+            rgba(9, 9, 9, 0.05) 100%
+        );
+}
+
+.atelier-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.atelier-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .atelier {
+        display: block;
+        padding: 0 0 75px;
+    }
+
+    .atelier-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: 360px;
+    }
+
+    .atelier-image::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(9, 9, 9, 0.05) 0%,
+                rgba(9, 9, 9, 0.10) 45%,
+                rgba(9, 9, 9, 0.75) 100%
+            );
+    }
+
+    .atelier-image img {
+        object-position: center;
+    }
+
+    .atelier-content {
+        padding: 70px 22px 0;
+        max-width: none;
+    }
+
+}
