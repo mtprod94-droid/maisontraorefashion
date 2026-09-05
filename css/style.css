@@ -2409,3 +2409,165 @@ em {
 .collection-feature-image.ceremony {
     height: 260px;
 }
+/* =====================================================
+   ATELIER — MAISON TRAORÉ FASHION
+   Premium visual treatment
+   ===================================================== */
+
+.atelier {
+    position: relative;
+    min-height: 720px;
+    display: flex;
+    align-items: flex-end;
+    padding: 90px 24px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 7, 7, 0.98) 0%,
+            rgba(7, 7, 7, 0.94) 42%,
+            rgba(7, 7, 7, 0.70) 72%,
+            rgba(7, 7, 7, 0.88) 100%
+        ),
+        radial-gradient(
+            circle at 78% 28%,
+            #332a1c 0%,
+            #17140f 32%,
+            #090909 72%
+        );
+    overflow: hidden;
+}
+
+.atelier::before {
+    content: "ATELIER";
+    position: absolute;
+    top: 55px;
+    right: -55px;
+    color: rgba(185, 154, 90, 0.055);
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+.atelier::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    bottom: -100px;
+    border: 1px solid rgba(185, 154, 90, 0.14);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(185, 154, 90, 0.025),
+        0 0 0 70px rgba(185, 154, 90, 0.015);
+    pointer-events: none;
+}
+
+.atelier-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 620px;
+}
+
+.atelier .section-label {
+    margin-bottom: 42px;
+}
+
+.atelier .eyebrow {
+    margin-bottom: 18px;
+}
+
+.atelier h2 {
+    max-width: 560px;
+    margin-bottom: 28px;
+}
+
+.atelier .body-text {
+    max-width: 540px;
+    line-height: 1.9;
+}
+
+.atelier-location {
+    margin: 48px 0 38px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.atelier-location > span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+}
+
+.atelier-location strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 400;
+}
+
+.atelier-location p {
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.atelier-location .text-link {
+    display: inline-flex;
+}
+
+@media (max-width: 600px) {
+
+    .atelier {
+        min-height: 680px;
+        padding: 75px 22px;
+    }
+
+    .atelier::before {
+        top: 30px;
+        right: -70px;
+        font-size: 6rem;
+    }
+
+    .atelier::after {
+        width: 200px;
+        height: 200px;
+        right: -90px;
+        bottom: -80px;
+    }
+
+    .atelier .section-label {
+        margin-bottom: 34px;
+    }
+
+    .atelier h2 {
+        margin-bottom: 24px;
+    }
+
+    .atelier .body-text {
+        line-height: 1.8;
+    }
+
+    .atelier-location {
+        margin: 40px 0 32px;
+        padding: 25px 0;
+    }
+
+    .atelier-location strong {
+        font-size: 1.35rem;
+    }
+}
