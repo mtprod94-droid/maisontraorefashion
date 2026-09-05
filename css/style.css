@@ -2815,3 +2815,78 @@ em {
         line-height: 1.7;
     }
 }
+/* =====================================================
+   PREMIUM FOOTER
+   ===================================================== */
+
+.site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 75px 24px 30px;
+    background: #060606;
+    border-top: 1px solid rgba(185, 154, 90, 0.18);
+}
+
+.site-footer::before {
+    content: "MAISON";
+    position: absolute;
+    right: -20px;
+    bottom: 70px;
+    color: rgba(185, 154, 90, 0.035);
+    font-family: var(--serif);
+    font-size: 8rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.site-footer > * {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.site-footer .brand {
+    margin-bottom: 18px;
+}
+
+.site-footer p {
+    color: rgba(255, 255, 255, 0.52);
+    line-height: 1.7;
+}
+
+.site-footer a {
+    transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: var(--gold);
+}
+
+.site-footer .footer-bottom {
+    margin-top: 55px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        padding: 60px 22px 25px;
+    }
+
+    .site-footer::before {
+        right: -35px;
+        bottom: 55px;
+        font-size: 6rem;
+    }
+
+    .site-footer .footer-bottom {
+        margin-top: 40px;
+    }
+}
