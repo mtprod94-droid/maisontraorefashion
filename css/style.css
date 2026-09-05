@@ -3096,3 +3096,373 @@ em {
         font-size: 0.84rem !important;
     }
 }
+/* =========================================================
+   COLLECTIONS — MAISON TRAORÉ FASHION
+   ÉDITION PREMIUM
+   ========================================================= */
+
+.collection-page-hero {
+    min-height: 78svh;
+    background:
+        radial-gradient(
+            circle at 75% 25%,
+            #3a3021 0%,
+            #19150f 32%,
+            #080808 72%
+        );
+}
+
+.collection-page-hero::before {
+    content: "COLLECTIONS";
+    position: absolute;
+    right: -75px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185, 154, 90, 0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.collection-page-hero .page-hero-content {
+    max-width: 720px;
+}
+
+.collection-page-hero h1 {
+    font-size: clamp(4rem, 17vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.collection-intro {
+    position: relative;
+    overflow: hidden;
+    padding: 95px 24px 105px;
+    background: var(--cream);
+    color: var(--black);
+}
+
+.collection-intro::after {
+    content: "01";
+    position: absolute;
+    right: 22px;
+    bottom: 30px;
+    color: rgba(185, 154, 90, 0.12);
+    font-family: var(--serif);
+    font-size: 7rem;
+    line-height: 1;
+}
+
+.collection-intro .eyebrow {
+    color: var(--gold-dark);
+}
+
+.collection-intro h2 {
+    max-width: 650px;
+    margin-bottom: 30px;
+    color: var(--black);
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    line-height: 0.95;
+}
+
+.collection-intro h2 em {
+    color: #8d703c;
+}
+
+.collection-intro > p:last-child {
+    max-width: 520px;
+    color: #625d56;
+    font-size: 0.85rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   COLLECTION LIST
+   ========================================================= */
+
+.collection-list {
+    border-top: 1px solid rgba(185,154,90,0.16);
+    background: #080808;
+}
+
+/* =========================================================
+   COLLECTION FEATURE
+   ========================================================= */
+
+.collection-feature {
+    position: relative;
+    display: block;
+    min-height: 620px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(185,154,90,0.14);
+    background: #0c0c0c;
+    text-decoration: none;
+}
+
+.collection-feature-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.01);
+    transition:
+        transform 1.2s var(--ease),
+        filter 0.8s ease;
+}
+
+.collection-feature-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8,8,8,0.08) 0%,
+            rgba(8,8,8,0.18) 35%,
+            rgba(8,8,8,0.88) 82%,
+            rgba(8,8,8,0.98) 100%
+        );
+}
+
+.collection-feature:hover .collection-feature-image {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+/* =========================================================
+   COLLECTION IMAGES
+   ========================================================= */
+
+.collection-feature-image.homme {
+    background-image:
+        url("../images/images/hero/images/collections/hommes-collection.PNG");
+}
+
+.collection-feature-image.femme {
+    background-image:
+        url("../images/images/hero/images/collections/femmes-collection.PNG");
+}
+
+.collection-feature-image.enfant {
+    background-image:
+        url("../images/images/hero/images/collections/enfants-collection.PNG");
+}
+
+.collection-feature-image.ceremony {
+    background-image:
+        url("../images/images/hero/images/collections/evenements-collection.PNG");
+}
+
+/* =========================================================
+   COLLECTION INFORMATION
+   ========================================================= */
+
+.collection-feature-info {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 35px 24px 40px;
+}
+
+.collection-feature-info > span:first-child {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+}
+
+.collection-feature-info h2 {
+    max-width: 600px;
+    margin-bottom: 18px;
+    color: #fff;
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+}
+
+.collection-feature-info h2 em {
+    color: rgba(255,255,255,0.72);
+}
+
+.collection-feature-info p {
+    max-width: 400px;
+    margin-bottom: 26px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78rem;
+    line-height: 1.8;
+}
+
+.collection-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.57rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(185,154,90,0.5);
+    padding-bottom: 8px;
+    transition:
+        color 0.3s ease,
+        gap 0.5s var(--ease);
+}
+
+.collection-link strong {
+    color: var(--gold-light);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.collection-feature:hover .collection-link {
+    gap: 25px;
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   COLLECTION PRIVATE
+   ========================================================= */
+
+.collection-private {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 24px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #30271a 0%,
+            #17130e 30%,
+            #080808 72%
+        );
+    border-top: 1px solid rgba(185,154,90,0.15);
+}
+
+.collection-private::before {
+    content: "SUR MESURE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(4rem, 17vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.collection-private::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(185,154,90,0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.collection-private > * {
+    position: relative;
+    z-index: 2;
+}
+
+.collection-private .eyebrow {
+    margin-bottom: 22px;
+    color: var(--gold-light);
+}
+
+.collection-private h2 {
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: clamp(3.2rem, 13vw, 6rem);
+    line-height: 0.9;
+}
+
+.collection-private h2 em {
+    color: var(--gold-light);
+}
+
+.collection-private p {
+    max-width: 500px;
+    margin-bottom: 35px;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+
+.collection-private .button-gold {
+    min-height: 54px;
+    padding: 0 30px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .collection-page-hero {
+        min-height: 70svh;
+        padding-bottom: 65px;
+    }
+
+    .collection-page-hero::before {
+        right: -90px;
+        font-size: 5rem;
+    }
+
+    .collection-intro {
+        padding: 78px 22px 90px;
+    }
+
+    .collection-intro h2 {
+        font-size: clamp(3rem, 13vw, 4.5rem);
+    }
+
+    .collection-feature {
+        min-height: 590px;
+    }
+
+    .collection-feature-info {
+        padding: 30px 22px 35px;
+    }
+
+    .collection-feature-info h2 {
+        font-size: clamp(2.9rem, 12vw, 4.5rem);
+    }
+
+    .collection-private {
+        min-height: 520px;
+        padding: 85px 22px;
+    }
+
+    .collection-private::after {
+        width: 280px;
+        height: 280px;
+    }
+
+    .collection-private h2 {
+        font-size: clamp(3rem, 13vw, 4.5rem);
+    }
+}
