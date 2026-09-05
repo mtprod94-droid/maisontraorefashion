@@ -2724,3 +2724,94 @@ em {
     }
 
 }
+/* =====================================================
+   PREMIUM APPOINTMENT CTA
+   ===================================================== */
+
+.appointment {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 24px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #30281b 0%,
+            #17140f 32%,
+            #090909 72%
+        );
+}
+
+.appointment::before {
+    content: "SUR MESURE";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: rgba(185, 154, 90, 0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 20vw, 12rem);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.appointment::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(185, 154, 90, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.appointment-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.appointment .eyebrow {
+    margin-bottom: 22px;
+}
+
+.appointment h2 {
+    margin-bottom: 24px;
+}
+
+.appointment-content > p:not(.eyebrow) {
+    max-width: 480px;
+    margin: 0 auto 38px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
+}
+
+.appointment .primary-button {
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+
+    .appointment {
+        min-height: 500px;
+        padding: 75px 22px;
+    }
+
+    .appointment::before {
+        font-size: 5rem;
+    }
+
+    .appointment::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    .appointment-content > p:not(.eyebrow) {
+        line-height: 1.7;
+    }
+}
