@@ -3798,3 +3798,222 @@ em {
         padding-left: 45px;
     }
 }
+/* =========================================================
+   FEMMES — MAISON TRAORÉ FASHION
+   PREMIUM WOMEN'S CATALOGUE
+   ========================================================= */
+
+.femmes-page-hero {
+    min-height: 76svh;
+    position: relative;
+    overflow: hidden;
+}
+
+.femmes-page-hero::after {
+    content: "FEMMES";
+    position: absolute;
+    right: -65px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.femmes-page-hero h1 {
+    font-size: clamp(4rem, 17vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   FEMMES CATALOGUE
+   ========================================================= */
+
+.femmes-page .catalog {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(185,154,90,0.07),
+            transparent 30%
+        ),
+        #090909;
+}
+
+.femmes-page .catalog-header h2 em {
+    color: var(--gold-light);
+}
+
+.femmes-page .category-heading h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+}
+
+.femmes-page .catalog-card {
+    background: #11100e;
+}
+
+.femmes-page .catalog-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(185,154,90,0.55);
+}
+
+.femmes-page .catalog-image {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #3a3025 0%,
+            #18130f 45%,
+            #090909 100%
+        );
+}
+
+.femmes-page .catalog-image::before {
+    border-color: rgba(185,154,90,0.18);
+}
+
+.femmes-page .catalog-card-info {
+    background:
+        linear-gradient(
+            135deg,
+            #12110f,
+            #0b0b0b
+        );
+}
+
+.femmes-page .catalog-card-info h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+}
+
+/* =========================================================
+   FEMMES EDITORIAL SECTIONS
+   ========================================================= */
+
+.femmes-page .catalog-category {
+    padding-bottom: 20px;
+}
+
+.femmes-page .catalog-category:nth-child(even) {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(185,154,90,0.025),
+            transparent
+        );
+}
+
+.femmes-page .catalog-category:nth-child(even)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(185,154,90,0.32),
+            transparent
+        );
+}
+
+/* =========================================================
+   FEMMES SUR MESURE
+   ========================================================= */
+
+.femmes-page .catalog-private {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 22px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #33291e 0%,
+            #17120e 32%,
+            #080808 74%
+        );
+    border-top: 1px solid rgba(185,154,90,0.16);
+}
+
+.femmes-page .catalog-private::before {
+    content: "ÉLÉGANCE";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.femmes-page .catalog-private-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.femmes-page .catalog-private h2 {
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 13vw, 6rem);
+    font-weight: 400;
+    line-height: 0.92;
+}
+
+.femmes-page .catalog-private h2 em {
+    color: var(--gold-light);
+}
+
+.femmes-page .catalog-private p {
+    max-width: 480px;
+    margin: 25px auto 35px;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .femmes-page-hero {
+        min-height: 70svh;
+    }
+
+    .femmes-page-hero::after {
+        right: -85px;
+        font-size: 5.5rem;
+    }
+
+    .femmes-page .catalog {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .femmes-page .catalog-grid {
+        gap: 10px;
+    }
+
+    .femmes-page .catalog-card {
+        min-height: 350px;
+    }
+
+    .femmes-page .catalog-image {
+        min-height: 225px;
+    }
+
+    .femmes-page .catalog-private {
+        min-height: 510px;
+        padding: 80px 22px;
+    }
+}
