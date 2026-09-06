@@ -4215,3 +4215,849 @@ body:has(.collection-item) .collection-item:hover .collection-arrow {
         font-size: 0.75rem;
     }
 }
+/* =========================================================
+   ÉVÉNEMENTS — MAISON TRAORÉ FASHION
+   PREMIUM OCCASIONS & CEREMONIES
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .page-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+body:has(.catalog-category#fetes) .page-hero::after {
+    content: "ÉVÉNEMENTS";
+    position: absolute;
+    right: -95px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(4.5rem, 16vw, 10rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* =========================================================
+   EVENT CATALOGUE
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .catalog {
+    position: relative;
+    overflow: hidden;
+    padding: 85px 22px 105px;
+    background:
+        radial-gradient(
+            circle at 82% 12%,
+            rgba(185,154,90,0.07),
+            transparent 30%
+        ),
+        #080808;
+}
+
+body:has(.catalog-category#fetes) .catalog-header {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+body:has(.catalog-category#fetes) .catalog-header h2 {
+    font-size: clamp(3.2rem, 13vw, 6rem);
+    line-height: 0.91;
+    letter-spacing: -0.045em;
+}
+
+body:has(.catalog-category#fetes) .catalog-header h2 em {
+    display: block;
+    color: var(--gold-light);
+}
+
+body:has(.catalog-category#fetes) .heading-description {
+    max-width: 500px;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   CATEGORY NAVIGATION
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .catalog-category-nav {
+    border-top: 1px solid rgba(185,154,90,0.18);
+    border-bottom: 1px solid rgba(185,154,90,0.18);
+}
+
+body:has(.catalog-category#fetes) .catalog-category-nav a {
+    transition:
+        color 0.3s ease,
+        padding 0.4s var(--ease);
+}
+
+body:has(.catalog-category#fetes) .catalog-category-nav a:hover {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   EVENT CATEGORIES
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .catalog-category {
+    position: relative;
+    margin-bottom: 105px;
+}
+
+body:has(.catalog-category#fetes) .catalog-category::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -52px;
+    width: 100%;
+    height: 1px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(185,154,90,0.3),
+            transparent 75%
+        );
+}
+
+body:has(.catalog-category#fetes) .catalog-category:last-child::after {
+    display: none;
+}
+
+body:has(.catalog-category#fetes) .category-heading {
+    margin-bottom: 35px;
+}
+
+body:has(.catalog-category#fetes) .category-heading h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 11vw, 4.8rem);
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+body:has(.catalog-category#fetes) .category-heading > span {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   EVENT CARDS
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .catalog-grid {
+    gap: 12px;
+}
+
+body:has(.catalog-category#fetes) .catalog-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    background: #0e0e0d;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition:
+        transform 0.6s var(--ease),
+        border-color 0.4s ease,
+        box-shadow 0.6s ease;
+}
+
+body:has(.catalog-category#fetes) .catalog-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(185,154,90,0.5);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.38);
+}
+
+body:has(.catalog-category#fetes) .catalog-image {
+    min-height: 270px;
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #34291d 0%,
+            #17120e 45%,
+            #090909 100%
+        );
+}
+
+body:has(.catalog-category#fetes) .catalog-image::before {
+    border-color: rgba(185,154,90,0.16);
+}
+
+body:has(.catalog-category#fetes) .catalog-image span {
+    color: rgba(255,255,255,0.32);
+}
+
+body:has(.catalog-category#fetes) .catalog-card-info {
+    background:
+        linear-gradient(
+            135deg,
+            #12110f,
+            #0a0a0a
+        );
+}
+
+body:has(.catalog-category#fetes) .catalog-card-info h3 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    font-weight: 400;
+}
+
+body:has(.catalog-category#fetes) .catalog-card-info > span {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   APPOINTMENT CTA
+   ========================================================= */
+
+body:has(.catalog-category#fetes) .appointment {
+    position: relative;
+    overflow: hidden;
+}
+
+body:has(.catalog-category#fetes) .appointment::before {
+    content: "VOTRE MOMENT";
+}
+
+body:has(.catalog-category#fetes) .appointment-content {
+    max-width: 650px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body:has(.catalog-category#fetes) .page-hero {
+        min-height: 70svh;
+    }
+
+    body:has(.catalog-category#fetes) .page-hero::after {
+        right: -105px;
+        font-size: 5rem;
+    }
+
+    body:has(.catalog-category#fetes) .catalog {
+        padding: 72px 22px 90px;
+    }
+
+    body:has(.catalog-category#fetes) .catalog-category {
+        margin-bottom: 85px;
+    }
+
+    body:has(.catalog-category#fetes) .catalog-card {
+        min-height: 350px;
+    }
+
+    body:has(.catalog-category#fetes) .catalog-image {
+        min-height: 225px;
+    }
+
+    body:has(.catalog-category#fetes) .catalog-category::after {
+        bottom: -42px;
+    }
+}
+/* =========================================================
+   RENDEZ-VOUS — MAISON TRAORÉ FASHION
+   PREMIUM APPOINTMENT EXPERIENCE
+   ========================================================= */
+
+.appointment-page {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 22px 110px;
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(185,154,90,0.08),
+            transparent 30%
+        ),
+        #090909;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.appointment-intro {
+    max-width: 720px;
+    margin: 0 auto 65px;
+}
+
+.appointment-intro .section-label {
+    margin-bottom: 35px;
+}
+
+.appointment-intro h2 {
+    margin-bottom: 28px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(3.3rem, 13vw, 6rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+}
+
+.appointment-intro h2 em {
+    display: block;
+    color: var(--gold-light);
+}
+
+.appointment-intro p {
+    max-width: 520px;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.82rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.appointment-form {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 42px 0 0;
+    border-top: 1px solid rgba(185,154,90,0.2);
+}
+
+.appointment-form::before {
+    content: "VOTRE PROJET";
+    position: absolute;
+    top: -18px;
+    right: 0;
+    padding-left: 15px;
+    background: #090909;
+    color: rgba(185,154,90,0.55);
+    font-family: var(--sans);
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.68);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0;
+    outline: none;
+    background: rgba(255,255,255,0.025);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 58px;
+    padding: 0 17px;
+}
+
+.form-group textarea {
+    min-height: 170px;
+    padding: 17px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--gold-light) 50%),
+        linear-gradient(135deg, var(--gold-light) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 25px,
+        calc(100% - 13px) 25px;
+    background-size: 5px 5px;
+    background-repeat: no-repeat;
+}
+
+.form-group select option {
+    background: #111;
+    color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(185,154,90,0.7);
+    background: rgba(185,154,90,0.035);
+    box-shadow: 0 0 0 1px rgba(185,154,90,0.12);
+}
+
+.form-submit {
+    margin-top: 42px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.form-submit .primary-button {
+    width: 100%;
+    min-height: 58px;
+    border: 1px solid var(--gold);
+}
+
+.form-submit p {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.62rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* =========================================================
+   INFORMATIONS
+   ========================================================= */
+
+.appointment-info {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 22px;
+    background: #11100d;
+    border-top: 1px solid rgba(185,154,90,0.14);
+}
+
+.appointment-info-header {
+    max-width: 720px;
+    margin: 0 auto 55px;
+}
+
+.appointment-info-header h2 {
+    margin-top: 22px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 400;
+    line-height: 0.9;
+}
+
+.appointment-info-header h2 em {
+    color: var(--gold-light);
+}
+
+.appointment-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.appointment-info-grid article {
+    min-height: 190px;
+    padding: 28px 22px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.appointment-info-grid article:last-child {
+    border-right: 0;
+}
+
+.appointment-info-grid article > span {
+    display: block;
+    margin-bottom: 30px;
+    color: var(--gold-light);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+}
+
+.appointment-info-grid h3 {
+    margin-bottom: 12px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+.appointment-info-grid p {
+    color: rgba(255,255,255,0.48);
+    font-size: 0.68rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   WHATSAPP CTA
+   ========================================================= */
+
+.appointment {
+    position: relative;
+    overflow: hidden;
+}
+
+.appointment-content {
+    position: relative;
+    z-index: 2;
+}
+
+.appointment-content h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+}
+
+.appointment-content h2 em {
+    color: var(--gold-light);
+}
+
+.appointment-content p:not(.eyebrow) {
+    max-width: 500px;
+    margin: 0 auto 35px;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.9;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .appointment-page {
+        padding: 78px 22px 85px;
+    }
+
+    .appointment-intro {
+        margin-bottom: 55px;
+    }
+
+    .appointment-intro h2 {
+        font-size: clamp(3rem, 13vw, 4.6rem);
+    }
+
+    .appointment-form {
+        padding-top: 35px;
+    }
+
+    .appointment-info {
+        padding: 78px 22px;
+    }
+
+    .appointment-info-header {
+        margin-bottom: 45px;
+    }
+
+    .appointment-info-grid {
+        display: block;
+    }
+
+    .appointment-info-grid article {
+        min-height: auto;
+        padding: 28px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .appointment-info-grid article:last-child {
+        border-bottom: 0;
+    }
+
+    .appointment-info-grid article > span {
+        margin-bottom: 18px;
+    }
+
+    .appointment-info-grid h3 {
+        font-size: 1.6rem;
+    }
+
+    .appointment-content p:not(.eyebrow) {
+        font-size: 0.78rem;
+    }
+}
+/* =========================================================
+   CONTACT — MAISON TRAORÉ FASHION
+   PREMIUM CONTACT EXPERIENCE
+   ========================================================= */
+
+.contact-page {
+    position: relative;
+    overflow: hidden;
+    padding: 95px 22px 105px;
+    background:
+        radial-gradient(
+            circle at 85% 12%,
+            rgba(185,154,90,0.08),
+            transparent 32%
+        ),
+        #090909;
+}
+
+.contact-page::before {
+    content: "CONTACT";
+    position: absolute;
+    right: -75px;
+    top: 330px;
+    transform: rotate(90deg);
+    color: rgba(185,154,90,0.035);
+    font-family: var(--serif);
+    font-size: 7rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.contact-intro {
+    max-width: 720px;
+    margin: 0 auto 70px;
+}
+
+.contact-intro h2 {
+    margin: 25px 0 28px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(3.4rem, 14vw, 6rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+.contact-intro h2 em {
+    display: block;
+    color: var(--gold-light);
+}
+
+.contact-intro p {
+    max-width: 520px;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   CONTACT INFORMATION
+   ========================================================= */
+
+.contact-details {
+    max-width: 720px;
+    margin: 0 auto 75px;
+    border-top: 1px solid rgba(185,154,90,0.2);
+}
+
+.contact-detail {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    padding: 27px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+.contact-detail > span {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.56rem;
+    letter-spacing: 0.15em;
+}
+
+.contact-detail small {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.38);
+    font-family: var(--sans);
+    font-size: 0.5rem;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+.contact-detail a,
+.contact-detail strong {
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.contact-detail a {
+    transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.contact-form-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 45px;
+    border-top: 1px solid rgba(185,154,90,0.2);
+}
+
+.contact-form-wrapper h3 {
+    margin-bottom: 35px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.contact-form-wrapper h3 em {
+    color: var(--gold-light);
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0;
+    outline: none;
+    background: rgba(255,255,255,0.025);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.contact-form-wrapper input {
+    min-height: 58px;
+    padding: 0 17px;
+    margin-bottom: 15px;
+}
+
+.contact-form-wrapper textarea {
+    min-height: 175px;
+    padding: 17px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.contact-form-wrapper input::placeholder,
+.contact-form-wrapper textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+}
+
+.contact-form-wrapper input:focus,
+.contact-form-wrapper textarea:focus {
+    border-color: rgba(185,154,90,0.7);
+    background: rgba(185,154,90,0.035);
+}
+
+.contact-form-wrapper button {
+    width: 100%;
+    min-height: 58px;
+    margin-top: 20px;
+}
+
+/* =========================================================
+   MAP / LOCATION
+   ========================================================= */
+
+.contact-location {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 22px;
+    background: #11100d;
+    border-top: 1px solid rgba(185,154,90,0.14);
+}
+
+.contact-location-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.contact-location h2 {
+    margin: 22px 0 25px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 400;
+    line-height: 0.9;
+}
+
+.contact-location h2 em {
+    color: var(--gold-light);
+}
+
+.contact-location p {
+    max-width: 450px;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.52);
+    font-size: 0.78rem;
+    line-height: 1.9;
+}
+
+.contact-location .text-link {
+    color: #fff;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .contact-page {
+        padding: 78px 22px 85px;
+    }
+
+    .contact-page::before {
+        right: -90px;
+        top: 290px;
+        font-size: 5.5rem;
+    }
+
+    .contact-intro {
+        margin-bottom: 55px;
+    }
+
+    .contact-intro h2 {
+        font-size: clamp(3.2rem, 14vw, 4.8rem);
+    }
+
+    .contact-details {
+        margin-bottom: 60px;
+    }
+
+    .contact-detail {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+        padding: 24px 0;
+    }
+
+    .contact-detail a,
+    .contact-detail strong {
+        font-size: 1.25rem;
+    }
+
+    .contact-location {
+        padding: 75px 22px;
+    }
+
+    .contact-location h2 {
+        font-size: clamp(3rem, 13vw, 4.6rem);
+    }
+}
