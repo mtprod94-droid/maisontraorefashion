@@ -4017,3 +4017,201 @@ em {
         padding: 80px 22px;
     }
 }
+/* =========================================================
+   ENFANTS — MAISON TRAORÉ FASHION
+   PREMIUM CHILDREN COLLECTION
+   ========================================================= */
+
+body:has(.page-hero h1) .page-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+body:has(.page-hero h1) .page-hero::after {
+    content: "ENFANTS";
+    position: absolute;
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* =========================================================
+   CHILDREN CATALOGUE
+   ========================================================= */
+
+body:has(.collection-item) .catalog {
+    position: relative;
+    overflow: hidden;
+    padding: 85px 22px 100px;
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(185,154,90,0.055),
+            transparent 30%
+        ),
+        #090909;
+}
+
+body:has(.collection-item) .catalog-header {
+    max-width: 680px;
+    margin-bottom: 55px;
+}
+
+body:has(.collection-item) .catalog-header h2 {
+    font-size: clamp(3.1rem, 13vw, 5.8rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+}
+
+body:has(.collection-item) .catalog-header h2 em {
+    display: block;
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   COLLECTION LIST
+   ========================================================= */
+
+body:has(.collection-item) .collection-list {
+    border-top: 1px solid rgba(185,154,90,0.18);
+}
+
+body:has(.collection-item) .collection-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 55px 1fr 40px;
+    align-items: center;
+    gap: 20px;
+    min-height: 145px;
+    padding: 28px 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition:
+        padding 0.5s var(--ease),
+        background 0.5s ease;
+}
+
+body:has(.collection-item) .collection-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.6s var(--ease);
+}
+
+body:has(.collection-item) .collection-item:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(185,154,90,0.06),
+            transparent
+        );
+}
+
+body:has(.collection-item) .collection-item:hover::before {
+    width: 100%;
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+body:has(.collection-item) .collection-number {
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+}
+
+/* =========================================================
+   INFORMATION
+   ========================================================= */
+
+body:has(.collection-item) .collection-info > span {
+    display: block;
+    margin-bottom: 10px;
+    color: rgba(185,154,90,0.72);
+    font-family: var(--sans);
+    font-size: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+}
+
+body:has(.collection-item) .collection-info h3 {
+    margin: 0;
+    color: #f4efe6;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    font-weight: 400;
+    line-height: 0.95;
+    transition: color 0.35s ease;
+}
+
+body:has(.collection-item) .collection-item:hover .collection-info h3 {
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+body:has(.collection-item) .collection-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(185,154,90,0.28);
+    border-radius: 50%;
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    transition:
+        transform 0.5s var(--ease),
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+body:has(.collection-item) .collection-item:hover .collection-arrow {
+    transform: rotate(45deg);
+    background: var(--gold);
+    color: #090909;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body:has(.collection-item) .catalog {
+        padding: 72px 22px 85px;
+    }
+
+    body:has(.collection-item) .collection-item {
+        grid-template-columns: 38px 1fr 35px;
+        gap: 12px;
+        min-height: 125px;
+        padding: 24px 0;
+    }
+
+    body:has(.collection-item) .collection-info h3 {
+        font-size: clamp(1.9rem, 8vw, 2.7rem);
+    }
+
+    body:has(.collection-item) .collection-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+}
