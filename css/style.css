@@ -5061,3 +5061,95 @@ body:has(.catalog-category#fetes) .appointment-content {
         font-size: clamp(3rem, 13vw, 4.6rem);
     }
 }
+/* =====================================================
+   CONTACT — INFORMATIONS
+   ===================================================== */
+
+.contact-page .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.contact-page .contact-card {
+    min-height: 220px;
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #11100d;
+    border: 1px solid rgba(185, 154, 90, 0.13);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.contact-page .contact-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(185, 154, 90, 0.35);
+    background: #15130f;
+}
+
+.contact-page .contact-card > span {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+}
+
+.contact-page .contact-card h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+}
+
+.contact-page .contact-card p {
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.86rem;
+    line-height: 1.7;
+}
+
+.contact-page .contact-card a {
+    margin-top: auto;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.contact-page .contact-card a:hover {
+    color: #fff;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .contact-page .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-page .contact-card {
+        min-height: 190px;
+        padding: 26px 22px;
+    }
+
+    .contact-page .contact-card > span {
+        margin-bottom: 18px;
+    }
+
+    .contact-page .contact-card h3 {
+        font-size: 1.5rem;
+    }
+}
