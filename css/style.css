@@ -5417,3 +5417,30 @@ body:has(.catalog-category#fetes) .appointment-content {
         height: 38px;
     }
 }
+/* =====================================================
+   FIX — ENFANTS BACKGROUND TEXT
+   Only the Enfants page may display "ENFANTS"
+   ===================================================== */
+
+/* Remove the incorrect ENFANTS background
+   from all other pages */
+body:has(.appointment-page) .page-hero::after,
+body:has(.contact-page) .page-hero::after,
+body:has(.about-section) .page-hero::after {
+    content: none;
+}
+
+/* Keep ENFANTS only on the actual Enfants page */
+body:has(.catalog-category#bebes) .page-hero::after {
+    content: "ENFANTS";
+    position: absolute;
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: rgba(185,154,90,0.045);
+    font-family: var(--serif);
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
