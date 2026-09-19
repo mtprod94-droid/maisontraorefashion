@@ -5444,3 +5444,416 @@ body:has(.catalog-category#bebes) .page-hero::after {
     white-space: nowrap;
     pointer-events: none;
 }
+/* =====================================================
+   OFFRE RENTRÉE — ÉLÈVES & ÉTUDIANTS
+   Maison Traoré Fashion
+   ===================================================== */
+
+.school-offer {
+    position: relative;
+    width: 100%;
+    min-height: 620px;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(185, 154, 90, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(185, 154, 90, 0.10),
+            transparent 30%
+        ),
+        #080808;
+    border-top: 1px solid rgba(185, 154, 90, 0.15);
+    border-bottom: 1px solid rgba(185, 154, 90, 0.15);
+}
+
+
+/* -----------------------------------------------------
+   ANIMATED BACKGROUND
+   ----------------------------------------------------- */
+
+.school-offer-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.offer-orb {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.32;
+    will-change: transform;
+}
+
+.offer-orb-1 {
+    width: 330px;
+    height: 330px;
+    top: -120px;
+    left: -80px;
+    background: rgba(185, 154, 90, 0.28);
+    animation: offerFloatOne 12s ease-in-out infinite alternate;
+}
+
+.offer-orb-2 {
+    width: 420px;
+    height: 420px;
+    right: -160px;
+    bottom: -180px;
+    background: rgba(185, 154, 90, 0.20);
+    animation: offerFloatTwo 15s ease-in-out infinite alternate;
+}
+
+.offer-orb-3 {
+    width: 180px;
+    height: 180px;
+    left: 48%;
+    top: 30%;
+    background: rgba(255, 255, 255, 0.07);
+    animation: offerFloatThree 9s ease-in-out infinite alternate;
+}
+
+.offer-light {
+    position: absolute;
+    width: 55%;
+    height: 180%;
+    top: -40%;
+    left: -20%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.035),
+        transparent
+    );
+    transform: rotate(18deg);
+    animation: offerLightMove 10s linear infinite;
+}
+
+@keyframes offerFloatOne {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(170px, 90px, 0) scale(1.18);
+    }
+}
+
+@keyframes offerFloatTwo {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(-150px, -100px, 0) scale(1.12);
+    }
+}
+
+@keyframes offerFloatThree {
+    0% {
+        transform: translate3d(-30px, 20px, 0);
+    }
+
+    100% {
+        transform: translate3d(80px, -60px, 0);
+    }
+}
+
+@keyframes offerLightMove {
+    0% {
+        transform: translateX(-80%) rotate(18deg);
+    }
+
+    100% {
+        transform: translateX(260%) rotate(18deg);
+    }
+}
+
+
+/* -----------------------------------------------------
+   CONTENT
+   ----------------------------------------------------- */
+
+.school-offer-inner {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, calc(100% - 40px));
+    min-height: 620px;
+    margin: 0 auto;
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 60px;
+    align-items: center;
+}
+
+
+/* -----------------------------------------------------
+   TEXT
+   ----------------------------------------------------- */
+
+.school-offer-content {
+    position: relative;
+    z-index: 4;
+}
+
+.school-offer-kicker {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.school-offer-discount {
+    margin: 0 0 12px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(6rem, 13vw, 10rem);
+    font-weight: 400;
+    line-height: 0.78;
+    letter-spacing: -0.06em;
+    text-shadow:
+        0 0 40px rgba(185, 154, 90, 0.16);
+}
+
+.school-offer-discount .percent {
+    color: var(--gold-light);
+    font-size: 0.52em;
+    vertical-align: top;
+    margin-left: 4px;
+}
+
+.school-offer-content h2 {
+    max-width: 520px;
+    margin: 25px 0 18px;
+    color: #fff;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.02;
+}
+
+.school-offer-target {
+    margin: 0 0 10px;
+    color: var(--gold-light);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+}
+
+.school-offer-description {
+    max-width: 470px;
+    margin: 0 0 28px;
+    color: rgba(255, 255, 255, 0.68);
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+.school-offer-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 22px;
+    border: 1px solid rgba(185, 154, 90, 0.55);
+    color: #fff;
+    background: rgba(185, 154, 90, 0.10);
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.school-offer-button span {
+    color: var(--gold-light);
+    font-size: 1rem;
+}
+
+.school-offer-button:hover {
+    background: rgba(185, 154, 90, 0.20);
+    border-color: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.school-offer-note {
+    display: block;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.38);
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+}
+
+
+/* -----------------------------------------------------
+   IMAGE RESERVATION
+   ----------------------------------------------------- */
+
+.school-offer-images {
+    position: relative;
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer-image-slot {
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid rgba(185, 154, 90, 0.30);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(185, 154, 90, 0.10),
+            rgba(255, 255, 255, 0.02)
+        );
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.offer-image-slot span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(185, 154, 90, 0.42);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.offer-image-main {
+    width: 62%;
+    aspect-ratio: 3 / 4;
+    right: 7%;
+    top: 2%;
+    transform: rotate(2deg);
+}
+
+.offer-image-secondary {
+    width: 43%;
+    aspect-ratio: 3 / 4;
+    left: 2%;
+    bottom: 0;
+    transform: rotate(-5deg);
+}
+
+
+/* -----------------------------------------------------
+   MOBILE
+   ----------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    .school-offer {
+        min-height: auto;
+    }
+
+    .school-offer-inner {
+        min-height: auto;
+        padding: 65px 0;
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .school-offer-content {
+        text-align: center;
+    }
+
+    .school-offer-kicker {
+        max-width: 300px;
+    }
+
+    .school-offer-content h2,
+    .school-offer-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .school-offer-images {
+        min-height: 430px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .offer-image-main {
+        width: 62%;
+        right: 4%;
+    }
+
+    .offer-image-secondary {
+        width: 44%;
+        left: 3%;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .school-offer-inner {
+        width: min(100% - 28px, 500px);
+        padding: 55px 0;
+    }
+
+    .school-offer-discount {
+        font-size: 6.5rem;
+    }
+
+    .school-offer-content h2 {
+        font-size: 2.25rem;
+    }
+
+    .school-offer-description {
+        font-size: 0.85rem;
+    }
+
+    .school-offer-images {
+        min-height: 350px;
+    }
+
+    .offer-image-main {
+        width: 65%;
+    }
+
+    .offer-image-secondary {
+        width: 45%;
+    }
+}
+
+
+/* -----------------------------------------------------
+   ACCESSIBILITY
+   ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .offer-orb,
+    .offer-light {
+        animation: none;
+    }
+
+    .school-offer-button {
+        transition: none;
+    }
+}
