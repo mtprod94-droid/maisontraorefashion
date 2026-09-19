@@ -5857,3 +5857,120 @@ body:has(.catalog-category#bebes) .page-hero::after {
         transition: none;
     }
 }
+/* =====================================================
+   OFFRE RENTRÉE — COUNTDOWN
+   ===================================================== */
+
+.school-offer-countdown {
+    margin: 28px 0 30px;
+}
+
+.countdown-label {
+    display: block;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.48);
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.countdown-unit {
+    min-width: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.countdown-unit strong {
+    display: block;
+    color: var(--gold-light);
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit span {
+    color: rgba(255, 255, 255, 0.42);
+    font-family: var(--sans);
+    font-size: 0.46rem;
+    letter-spacing: 0.14em;
+}
+
+.countdown-separator {
+    color: rgba(185, 154, 90, 0.55);
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-top: -13px;
+}
+
+.countdown-deadline {
+    display: block;
+    margin-top: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .school-offer-countdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown-timer {
+        gap: 7px;
+    }
+
+    .countdown-unit {
+        min-width: 52px;
+    }
+
+    .countdown-unit strong {
+        font-size: 1.75rem;
+    }
+
+    .countdown-separator {
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .countdown-timer {
+        gap: 4px;
+    }
+
+    .countdown-unit {
+        min-width: 45px;
+    }
+
+    .countdown-unit strong {
+        font-size: 1.5rem;
+    }
+
+    .countdown-unit span {
+        font-size: 0.4rem;
+        letter-spacing: 0.08em;
+    }
+
+    .countdown-separator {
+        font-size: 1.15rem;
+    }
+}
