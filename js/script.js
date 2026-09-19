@@ -773,3 +773,84 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 });
+
+/* =====================================================
+   OFFRE RENTRÉE — COUNTDOWN
+   Fin : 04 octobre 2026 à 00:00 (heure de Lomé)
+   ===================================================== */
+
+(function () {
+
+    const daysElement = document.getElementById("countdown-days");
+    const hoursElement = document.getElementById("countdown-hours");
+    const minutesElement = document.getElementById("countdown-minutes");
+    const secondsElement = document.getElementById("countdown-seconds");
+
+    if (
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ) {
+        return;
+    }
+
+    /*
+     * Lomé utilise UTC+00:00.
+     * L'offre reste valable pendant tout le 03 octobre.
+     * Elle expire le 04 octobre 2026 à 00:00.
+     */
+
+    const offerEnd = new Date("2026-10-04T00:00:00+00:00").getTime();
+
+    function updateCountdown() {
+
+        const now = Date.now();
+        const distance = offerEnd - now;
+
+        if (distance <= 0) {
+
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            const label = document.querySelector(".countdown-label");
+
+            if (label) {
+                label.textContent = "OFFRE TERMINÉE";
+            }
+
+            return;
+        }
+
+        const days = Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (distance % (1000 * 60)) /
+            1000
+        );
+
+        daysElement.textContent = String(days).padStart(2, "0");
+        hoursElement.textContent = String(hours).padStart(2, "0");
+        minutesElement.textContent = String(minutes).padStart(2, "0");
+        secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+})();
