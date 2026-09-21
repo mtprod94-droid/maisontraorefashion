@@ -5974,3 +5974,32 @@ body:has(.catalog-category#bebes) .page-hero::after {
         font-size: 1.15rem;
     }
 }
+/* =====================================================
+   OFFRE RENTRÉE — CAMPAIGN IMAGES
+   ===================================================== */
+
+.offer-image-slot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.offer-image-main img {
+    object-position: center;
+}
+
+.offer-image-secondary img {
+    object-position: center;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+
+    .offer-image-slot img {
+        object-fit: cover;
+    }
+}
